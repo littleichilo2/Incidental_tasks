@@ -108,7 +108,7 @@ while(endflag==0):
 					os.rename(f,'1.csv')
 					df=pd.read_csv('1.csv',engine="python")
 					os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics")
-					df.to_excel(pagename+'.xlsx',sheet_name=pagename,index=None,encoding="CP932")
+					df.to_excel(pagename+'.xlsx',sheet_name=pagename,index=None,encoding="CP932")#encoding="utf-8",encoding="shift-jis"
 					os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2")
 					os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\1.csv')
 				driver.back()
@@ -139,7 +139,7 @@ os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics")
 excel_writer = pd.ExcelWriter('alldata_analytics.xlsx')
 for f in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics"):
 	os.rename(f,'1.xlsx')
-	df=pd.read_excel('1.xlsx',sheet_name=f.replace('.xlsx',''), encoding="shift-jis")
+	df=pd.read_excel('1.xlsx',sheet_name=f.replace('.xlsx',''), encoding="shift-jis")#encoding="utf-8",encoding="CP932"
 	print(str(f))
 	df.to_excel(excel_writer,sheet_name=f.replace('.xlsx',''),index=False)
 	os.rename('1.xlsx',f)
