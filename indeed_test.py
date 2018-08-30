@@ -106,9 +106,9 @@ while(endflag==0):
 				os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2")
 				for f in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2"):
 					os.rename(f,'1.csv')
-					df=pd.read_csv('1.csv',engine="python")
+					df=pd.read_csv('1.csv')
 					os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics")
-					df.to_excel(pagename+'.xlsx',sheet_name=pagename,index=None,encoding="CP932")#encoding="utf-8",encoding="shift-jis"
+					df.to_excel(pagename+'.xlsx',sheet_name=pagename,index=None,encoding="utf-8")#encoding="utf-8",encoding="shift-jis"
 					os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2")
 					os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\1.csv')
 				driver.back()
