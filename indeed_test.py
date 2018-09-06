@@ -126,7 +126,6 @@ while(endflag==0):
             os.rename(f,'1.csv')
             os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\1.csv')
         startflag=buffff
-    continue
 driver.quit()
 os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\daily")
 excel_writer = pd.ExcelWriter('alldata_daily.xlsx')
