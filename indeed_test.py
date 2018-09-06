@@ -43,7 +43,9 @@ if len(sys.argv) == 1:
     startflag = 0
 elif len(sys.argv)==2:
     startfromflag=1
-
+for f in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2"):
+    os.rename(f,'1.csv')
+    os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\1.csv')
 while(endflag==0):
     try:
         driver.get("https://ads.indeed.com/master_summary")
