@@ -43,7 +43,7 @@ if len(sys.argv) == 1:
     startflag = 0
 elif len(sys.argv)==2:
     startfromflag=1
-
+    startflag = int(sys.argv[1])-1
 while(endflag==0):
     for f in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2"):
         os.rename(f,'1.csv')
@@ -51,8 +51,7 @@ while(endflag==0):
     try:
         driver.get("https://ads.indeed.com/master_summary")
         pagelist=driver.find_elements_by_xpath('//table[@id="hjhome"]/tbody/tr[@class="datarow unique"]/td[@class="left first"]/a')
-        if startfromflag == 1:
-            startflag = int(sys.argv[1])-1
+        
         startdate=datetime.date.today()-relativedelta(months=1)
         for k in range(startflag,len(pagelist)):
             buffff=k
@@ -71,11 +70,13 @@ while(endflag==0):
                 for f in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2"):
                     df= pd.read_csv(f,engine='python')
                     df.to_excel(pagename+'.xlsx',sheet_name=pagename,index=False,encoding="CP932")
+                    if pagename+".xlsx" in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\daily"):
+                        os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\daily\\'+pagename+'.xlsx')
                     shutil.move('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\'+pagename+'.xlsx','C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\daily')
                     os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\'+f)
                 driver.back()
                 driver.get("https://analytics.indeed.com/analytics/jobperf?startDate="+startdate.strftime("%Y-%m-01")+"&endDate="+startdate.strftime("%Y-%m")+'-'+str(monthrange(startdate.year,startdate.month)[1]))
-                time.sleep(10)
+                time.sleep(5)
                 if lxml.html.fromstring(driver.page_source).xpath("//div[@id='body-container']/div[@class='ia-BodyWrapper']/div[@class='ia-BodyMain']/div/div[@class='icl-Grid'][3]/div[@class='icl-Grid-col icl-u-xs-span10']/div/div[@class='ia-PerfReportToolBar']/div[@class='ia-PerfReportToolBarItem'][3]/button[@class='icl-Button--secondary icl-Button--sm ia-PerfReportToolBarItem-dropbtn']")==[]:
                     driver.find_element_by_tag_name("body").send_keys(Keys.F5)
                     print("F5")
@@ -94,6 +95,8 @@ while(endflag==0):
                     os.rename(f,'1.csv')
                     df=pd.read_csv('1.csv')
                     os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics")
+                    if pagename+".xlsx" in listdir("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics"):
+                        os.remove("C:\\Users\\seisaku\\Desktop\\Indeed\\monthly\\analytics\\"+pagename+'.xlsx')
                     df.to_excel(pagename+'.xlsx',sheet_name=pagename,index=None,encoding="utf-8")#encoding="utf-8",encoding="shift-jis"
                     os.chdir("C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2")
                     os.remove('C:\\Users\\seisaku\\Desktop\\Indeed\\buffer_2\\1.csv')
@@ -101,7 +104,6 @@ while(endflag==0):
                 driver.back()
             driver.back()
             time.sleep(5)
-            
             if k == len(pagelist)-1:
                 endflag=1
                 break
