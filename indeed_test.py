@@ -117,6 +117,7 @@ while(endflag==0):
         driver.close()
         os.chdir("C:\\Users\\seisaku\\Desktop")
         driver = webdriver.Firefox(profile)
+        wait=WebDriverWait(driver,60)
         driver.get("https://secure.indeed.com/account/login?service=mob&hl=ja_JP&co=JP&continue=https%3A%2F%2Fjp.indeed.com%2F%3F_ga%3D2.167660222.1622849172.1514262980-517429143.1514262980&tmpl=dmobile")
         wait.until(ec.presence_of_all_elements_located)
         driver.find_element_by_id('signin_email').clear()
