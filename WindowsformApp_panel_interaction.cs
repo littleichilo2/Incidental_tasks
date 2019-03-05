@@ -16,6 +16,28 @@ if button click:
   else:
     target.Enable = False
 
+private void endbutton_click(){
+  Excel.Application xlApp = new Excel.Application();
+  Excel.Workbook xlWorkbook = xlApp.Workbooks.Open(@"test.xlsx");
+  Excel._Worksheet xlWorksheet = xlWorkbook.Sheets[1];
+  Excel.Range xlRange = xlWorksheet.UsedRange;
+
+
+
+
+
+  GC.Collect();
+  GC.WaitForPendingFinalizers();
+
+  Marshal.ReleaseComObject(xlRange);
+  Marshal.ReleaseComObject(xlWorksheet);
+
+  xlWorkbook.Close();
+  Marshal.ReleaseComObject(xlWorkbook);
+
+  xlApp.Quit();
+  Marshal.ReleaseComObject(xlApp);
+}
 
 
 
