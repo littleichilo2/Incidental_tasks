@@ -30,6 +30,7 @@ namespace Inference
         List<string> answer_timelist = new List<string>();
         List<int> againtimes_list = new List<int>();
         int again = 0;
+        music_list = [];
         DateTime datetime_now;
         DateTime datetimeflag;
         WMPLib.WindowsMediaPlayer musicplayer = new WMPLib.WindowsMediaPlayer();
@@ -271,27 +272,27 @@ namespace Inference
                 excelApp.Cells[2, 35] = againtimes_list[9];
 
                 // 設定第3列資料
-                excelApp.Cells[3, 1] = "BB";
-                excelApp.Cells[3, 2] = "20";
+                //excelApp.Cells[3, 1] = "BB";
+                //excelApp.Cells[3, 2] = "20";
          
                 // 設定第4列資料
-                excelApp.Cells[4, 1] = "CC";
-                excelApp.Cells[4, 2] = "30";
+                //excelApp.Cells[4, 1] = "CC";
+                //excelApp.Cells[4, 2] = "30";
          
                 // 設定第5列資料
-                excelApp.Cells[5, 1] = "總計";
+                //excelApp.Cells[5, 1] = "總計";
                 // 設定總和公式 =SUM(B2:B4)
-                excelApp.Cells[5, 2].Formula = string.Format("=SUM(B{0}:B{1})", 2, 4);
+                //excelApp.Cells[5, 2].Formula = string.Format("=SUM(B{0}:B{1})", 2, 4);
                 // 設定第5列顏色
-                wRange = wSheet.Range[wSheet.Cells[5, 1], wSheet.Cells[5, 2]];
-                wRange.Select();
-                wRange.Font.Color = ColorTranslator.ToOle(Color.Red);
-                wRange.Interior.Color = ColorTranslator.ToOle(Color.Yellow);
+                //wRange = wSheet.Range[wSheet.Cells[5, 1], wSheet.Cells[5, 2]];
+                //wRange.Select();
+                //wRange.Font.Color = ColorTranslator.ToOle(Color.Red);
+                //wRange.Interior.Color = ColorTranslator.ToOle(Color.Yellow);
          
                 // 自動調整欄寬
-                wRange = wSheet.Range[wSheet.Cells[1, 1], wSheet.Cells[5, 2]];
-                wRange.Select();
-                wRange.Columns.AutoFit();
+                //wRange = wSheet.Range[wSheet.Cells[1, 1], wSheet.Cells[5, 2]];
+                //wRange.Select();
+                //wRange.Columns.AutoFit();
          
                 try
                 {
