@@ -235,11 +235,11 @@ namespace Inference
                 wRange.Interior.Color = ColorTranslator.ToOle(Color.DimGray);
          
                 // 設定第2列資料
-                excelApp.Cells[2, 1] = "AA";
-                excelApp.Cells[2, 2] = "10";
-                excelApp.Cells[2, 3] = "10";
-                excelApp.Cells[2, 4] = "10";
-                excelApp.Cells[2, 5] = "10";
+                excelApp.Cells[2, 1] = ;//流水號
+                excelApp.Cells[2, 2] = ;//姓名
+                excelApp.Cells[2, 3] = ;//出生年月
+                excelApp.Cells[2, 4] = ;//施測年月
+                excelApp.Cells[2, 5] = ;//性別
                 excelApp.Cells[2, 6] = answerlist[0];
                 excelApp.Cells[2, 7] = answer_timelist[0];
                 excelApp.Cells[2, 8] = againtimes_list[0];
