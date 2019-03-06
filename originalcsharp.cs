@@ -28,6 +28,8 @@ namespace Inference
         List<string> music_list = new List<string>();
         List<string> answerlist = new List<string>();
         List<string> answer_timelist = new List<string>();
+        List<int> againtimes_list = new List<int>();
+        int again = 0;
         DateTime datetime_now;
         DateTime datetimeflag;
         WMPLib.WindowsMediaPlayer musicplayer = new WMPLib.WindowsMediaPlayer();
@@ -50,6 +52,11 @@ namespace Inference
 
         private void button_Click(object sender, EventArgs e, MessageType type)
         {
+            //add the againtimes into list before the next frame
+            if(again_buttonlist.IndexOf(frame) != -1)
+                againtimes_list.Add(again);
+            again = 0;
+
             frame = frame + 1;
             datetimeflag = DateTime.Now;
             //music play
@@ -101,12 +108,12 @@ namespace Inference
             if(type.Equals(MessageType.circlebutton)){
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('Yes');
+                answerlist.Add('O');
             }
             else if(type.Equals(MessageType.Xbutton)){
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('No');
+                answerlist.Add('X');
             }
             else if(type.Equals(MessageType.Button1)){
                 datetime_now = DateTime.Now;
@@ -128,6 +135,7 @@ namespace Inference
         }
         
         private void againbutton_click(object sender,EventArgs e){
+            again +=1;
             musicplayer.URL = music_list[frame];
             musicplayer.controls.play();
         }
@@ -176,8 +184,49 @@ namespace Inference
                 excelApp.Cells[1, 1] = "Excel測試";
          
                 // 設定第1列資料
-                excelApp.Cells[1, 1] = "名稱";
-                excelApp.Cells[1, 2] = "數量";
+                excelApp.Cells[1, 1] = "流水號";
+                excelApp.Cells[1, 2] = "名稱";
+                excelApp.Cells[1, 3] = "出生年月";
+                excelApp.Cells[1, 4] = "施測日期";
+                excelApp.Cells[1, 5] = "性別";
+                excelApp.Cells[1, 6] = "第一題";
+                excelApp.Cells[1, 7] = "作答時間";
+                excelApp.Cells[1, 8] = "重複次數";
+                excelApp.Cells[1, 9] = "第二題";
+                excelApp.Cells[1, 10] = "作答時間";
+                excelApp.Cells[1, 11] = "重複次數";
+                excelApp.Cells[1, 12] = "第三題";
+                excelApp.Cells[1, 13] = "作答時間";
+                excelApp.Cells[1, 14] = "重複次數";
+                excelApp.Cells[1, 15] = "第四題";
+                excelApp.Cells[1, 16] = "作答時間";
+                excelApp.Cells[1, 17] = "重複次數";
+
+                excelApp.Cells[1, 18] = "第五題";
+                excelApp.Cells[1, 19] = "作答時間";
+                excelApp.Cells[1, 20] = "重複次數";
+
+                excelApp.Cells[1, 21] = "第六題";
+                excelApp.Cells[1, 22] = "作答時間";
+                excelApp.Cells[1, 23] = "重複次數";
+
+                excelApp.Cells[1, 24] = "第七題";
+                excelApp.Cells[1, 25] = "作答時間";
+                excelApp.Cells[1, 26] = "重複次數";
+
+                excelApp.Cells[1, 27] = "第八題";
+                excelApp.Cells[1, 28] = "作答時間";
+                excelApp.Cells[1, 29] = "重複次數";
+
+                excelApp.Cells[1, 30] = "第九題";
+                excelApp.Cells[1, 31] = "作答時間";
+                excelApp.Cells[1, 32] = "重複次數";
+
+                excelApp.Cells[1, 33] = "第十題";
+                excelApp.Cells[1, 34] = "作答時間";
+                excelApp.Cells[1, 35] = "重複次數";
+
+
                 // 設定第1列顏色
                 wRange = wSheet.Range[wSheet.Cells[1, 1], wSheet.Cells[1, 2]];
                 wRange.Select();
@@ -187,7 +236,40 @@ namespace Inference
                 // 設定第2列資料
                 excelApp.Cells[2, 1] = "AA";
                 excelApp.Cells[2, 2] = "10";
-         
+                excelApp.Cells[2, 3] = "10";
+                excelApp.Cells[2, 4] = "10";
+                excelApp.Cells[2, 5] = "10";
+                excelApp.Cells[2, 6] = answerlist[0];
+                excelApp.Cells[2, 7] = answer_timelist[0];
+                excelApp.Cells[2, 8] = againtimes_list[0];
+                excelApp.Cells[2, 9] = answerlist[1];
+                excelApp.Cells[2, 10] = answer_timelist[1];
+                excelApp.Cells[2, 11] = againtimes_list[1];
+                excelApp.Cells[2, 12] = answerlist[2];
+                excelApp.Cells[2, 13] = answer_timelist[2];
+                excelApp.Cells[2, 14] = againtimes_list[2];
+                excelApp.Cells[2, 15] = answerlist[3];
+                excelApp.Cells[2, 16] = answer_timelist[3];
+                excelApp.Cells[2, 17] = againtimes_list[3];
+                excelApp.Cells[2, 18] = answerlist[4];
+                excelApp.Cells[2, 19] = answer_timelist[4];
+                excelApp.Cells[2, 20] = againtimes_list[4];
+                excelApp.Cells[2, 21] = answerlist[5];
+                excelApp.Cells[2, 22] = answer_timelist[5];
+                excelApp.Cells[2, 23] = againtimes_list[5];
+                excelApp.Cells[2, 24] = answerlist[6];
+                excelApp.Cells[2, 25] = answer_timelist[6];
+                excelApp.Cells[2, 26] = againtimes_list[6];
+                excelApp.Cells[2, 27] = answerlist[7];
+                excelApp.Cells[2, 28] = answer_timelist[7];
+                excelApp.Cells[2, 29] = againtimes_list[7];
+                excelApp.Cells[2, 30] = answerlist[8];
+                excelApp.Cells[2, 31] = answer_timelist[8];
+                excelApp.Cells[2, 32] = againtimes_list[8];
+                excelApp.Cells[2, 33] = answerlist[9];
+                excelApp.Cells[2, 34] = answer_timelist[9];
+                excelApp.Cells[2, 35] = againtimes_list[9];
+
                 // 設定第3列資料
                 excelApp.Cells[3, 1] = "BB";
                 excelApp.Cells[3, 2] = "20";
