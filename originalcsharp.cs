@@ -25,12 +25,28 @@ namespace Inference
         List<int> list_3 = new List<int>();
         List<int> again_buttonlist = new List<int>();
         List<int> next_buttonlist = new List<int>();
-        List<string> music_list = new List<string>();
+        List<string> musicfile_list = new List<string>(){
+            "open-i.mp3","practice1.mp3","pi1bgquestion.mp3","question1choice1.mp3","attention-i.mp3","story.mp3","pi-text1.mp3",
+            "question2choice2.mp3","pquestion-i11.mp3","pquestion-i12.mp3","pquestion-i13.mp3","practice 2.mp3","pi2bgquestion.mp3",
+            "pi-text2.mp3","pquestion-i21.mp3","pquestion-i22.mp3","pquestion-i23.mp3","pquestion-i24.mp3","Istart1.mp3","ibgquestion1.mp3",
+            "question1choice1.mp3","attention-i.mp3","story.mp3","i-text1.mp3","question2choice2.mp3","question-i11.mp3","question-i12.mp3",
+            "question-i13.mp3","question-i14.mp3","istart2.mp3","ibgquestion2.mp3","question1choice1.mp3","attention-i.mp3","story.mp3",
+            "i-text2.mp3","question2choice2.mp3","question-i21.mp3","question-i22.mp3","question-i23.mp3","Istart3.mp3","Ibgquestion3.mp3",
+            "question1choice1.mp3","attention-i.mp3","story.mp3","i-text3.mp3","question2choice2.mp3","question-i31.mp3","question-i32.mp3",
+            "Istart4.mp3","ibgquestion1.mp3","question1choice1.mp3","attention-i.mp3","story.mp3","i-text4.mp3","question2choice2.mp3","question-i41.mp3",
+            "question-i42.mp3","question-i43.mp3","question-i44.mp3","question-i45.mp3","Istart5.mp3","Ibgquestion5.mp3","question1choice1.mp3","attention-i.mp3",
+            "story.mp3","i-text5.mp3","question2choice2.mp3","question-i51.mp3","question-i52.mp3","question-i53.mp3","question-i54.mp3","question-i55.mp3",
+            "Istart6.mp3","Ibgquestion6.mp3","question1choice1.mp3","attention-i.mp3","story.mp3","i-text6.mp3","question2choice2.mp3",
+            "question-i61.mp3","question-i62.mp3","question-i63.mp3","question-i64.mp3","question-i65.mp3","Istart7.mp3","Ibgquestion7.mp3",
+            "question1choice1.mp3","attention-i.mp3","story.mp3","i-text7.mp3","question2choice2.mp3","question-i71.mp3","question-i72.mp3",
+            "question-i73.mp3","question-i74.mp3","question-i75.mp3"
+        };
+        List<int> music_list = new List<int>();
+
         List<string> answerlist = new List<string>();
-        List<string> answer_timelist = new List<string>();
+        List<double> answer_timelist = new List<double>();
         List<int> againtimes_list = new List<int>();
         int again = 0;
-        music_list = [];
         DateTime datetime_now;
         DateTime datetimeflag;
         WMPLib.WindowsMediaPlayer musicplayer = new WMPLib.WindowsMediaPlayer();
@@ -38,30 +54,30 @@ namespace Inference
         public Form1()
         {
             InitializeComponent();
-            entrancebutton.Click += delegate(object sender, EventArgs e) { button_Click(sender, e, MessageType.entrancebutton); };  
-            flowerbutton.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.flowerbutton); };  
-            leafbutton.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.leafbutton); };  
-            circlebutton.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.circlebutton); };  
-            Xbutton.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.Xbutton); };  
-            Button1.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.Button1); };  
-            Button2.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.Button2); };  
-            Button3.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.Button3); };  
-            nextbutton.Click += delegate(object sender, EventArgs e) { button_Click(sender, e,  MessageType.nextbutton); };  
+            entranceButton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.entranceButton); };
+            flowerbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.flowerbutton); };
+            leafbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.leafbutton); };
+            circlebutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.circlebutton); };
+            Xbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Xbutton); };
+            Button1.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Button1); };
+            Button2.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Button2); };
+            Button3.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Button3); };
+            nextbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.nextbutton); };
 
-            
+
         }
 
         private void button_Click(object sender, EventArgs e, MessageType type)
         {
             //add the againtimes into list before the next frame
-            if(again_buttonlist.IndexOf(frame) != -1)
+            if (again_buttonlist.IndexOf(frame) != -1)
                 againtimes_list.Add(again);
             again = 0;
 
             frame = frame + 1;
             datetimeflag = DateTime.Now;
             //music play
-            musicplayer.URL = music_list[frame];
+            //musicplayer.URL = music_list[frame];
             musicplayer.controls.play();
 
             //What is going to appear on the panel
@@ -69,7 +85,8 @@ namespace Inference
             {
                 titlelabel.Visible = true;
             }
-            if (flowerlist.IndexOf(frame) != -1){
+            if (flowerlist.IndexOf(frame) != -1)
+            {
                 flowerbutton.Visible = true;
             }
             if (leaflist.IndexOf(frame) != -1)
@@ -104,86 +121,93 @@ namespace Inference
             {
                 nextbutton.Visible = true;
             }
-            
+
             //Record the response from the button
-            if(type.Equals(MessageType.circlebutton)){
+            if (type.Equals(MessageType.circlebutton))
+            {
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('O');
+                answerlist.Add("O");
             }
-            else if(type.Equals(MessageType.Xbutton)){
+            else if (type.Equals(MessageType.Xbutton))
+            {
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('X');
+                answerlist.Add("X");
             }
-            else if(type.Equals(MessageType.Button1)){
+            else if (type.Equals(MessageType.Button1))
+            {
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('1');
+                answerlist.Add("1");
             }
-            else if(type.Equals(MessageType.Button2)){
+            else if (type.Equals(MessageType.Button2))
+            {
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('2');
+                answerlist.Add("2");
             }
-            else if(type.Equals(MessageType.Button3)){
+            else if (type.Equals(MessageType.Button3))
+            {
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag).TotalMilliseconds);
-                answerlist.Add('3');
+                answerlist.Add("3");
             }
 
-            
+
         }
-        
-        private void againbutton_click(object sender,EventArgs e){
-            again +=1;
-            musicplayer.URL = music_list[frame];
+
+        private void againbutton_click(object sender, EventArgs e)
+        {
+            again += 1;
+            //musicplayer.URL = music_list[frame];
             musicplayer.controls.play();
         }
 
 
-        
-        private void endbutton_click(object sender, EventArgs e){
+
+        private void endbutton_click(object sender, EventArgs e)
+        {
             string nowpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
-            string pathFile = nowpath+'推論理解';
-         
+            string pathFile = nowpath +"\\推論理解";
+
             Excel.Application excelApp;
             Excel._Workbook wBook;
             Excel._Worksheet wSheet;
             Excel.Range wRange;
-         
+
             // 開啟一個新的應用程式
             excelApp = new Excel.Application();
-         
+
             // 讓Excel文件可見
             excelApp.Visible = true;
-         
+
             // 停用警告訊息
             excelApp.DisplayAlerts = false;
-         
+
             // 加入新的活頁簿
             excelApp.Workbooks.Add(Type.Missing);
-         
+
             // 引用第一個活頁簿
             wBook = excelApp.Workbooks[1];
-         
+
             // 設定活頁簿焦點
             wBook.Activate();
-         
+
             try
             {
                 // 引用第一個工作表
                 wSheet = (Excel._Worksheet)wBook.Worksheets[1];
-         
+
                 // 命名工作表的名稱
                 wSheet.Name = "sheet1";
-         
+
                 // 設定工作表焦點
                 wSheet.Activate();
-         
+
                 excelApp.Cells[1, 1] = "Excel測試";
-         
+
                 // 設定第1列資料
                 excelApp.Cells[1, 1] = "流水號";
                 excelApp.Cells[1, 2] = "名稱";
@@ -233,13 +257,14 @@ namespace Inference
                 wRange.Select();
                 wRange.Font.Color = ColorTranslator.ToOle(Color.White);
                 wRange.Interior.Color = ColorTranslator.ToOle(Color.DimGray);
-         
+
                 // 設定第2列資料
+                /*
                 excelApp.Cells[2, 1] = ;//流水號
                 excelApp.Cells[2, 2] = ;//姓名
                 excelApp.Cells[2, 3] = ;//出生年月
                 excelApp.Cells[2, 4] = ;//施測年月
-                excelApp.Cells[2, 5] = ;//性別
+                excelApp.Cells[2, 5] = ;//性別*/
                 excelApp.Cells[2, 6] = answerlist[0];
                 excelApp.Cells[2, 7] = answer_timelist[0];
                 excelApp.Cells[2, 8] = againtimes_list[0];
@@ -274,11 +299,11 @@ namespace Inference
                 // 設定第3列資料
                 //excelApp.Cells[3, 1] = "BB";
                 //excelApp.Cells[3, 2] = "20";
-         
+
                 // 設定第4列資料
                 //excelApp.Cells[4, 1] = "CC";
                 //excelApp.Cells[4, 2] = "30";
-         
+
                 // 設定第5列資料
                 //excelApp.Cells[5, 1] = "總計";
                 // 設定總和公式 =SUM(B2:B4)
@@ -288,12 +313,12 @@ namespace Inference
                 //wRange.Select();
                 //wRange.Font.Color = ColorTranslator.ToOle(Color.Red);
                 //wRange.Interior.Color = ColorTranslator.ToOle(Color.Yellow);
-         
+
                 // 自動調整欄寬
                 //wRange = wSheet.Range[wSheet.Cells[1, 1], wSheet.Cells[5, 2]];
                 //wRange.Select();
                 //wRange.Columns.AutoFit();
-         
+
                 try
                 {
                     //另存活頁簿
@@ -309,13 +334,13 @@ namespace Inference
             {
                 //Console.WriteLine("產生表時出錯！" + Environment.NewLine + ex.Message);
             }
-         
+
             //關閉活頁簿
             wBook.Close(false, Type.Missing, Type.Missing);
-         
+
             //關閉Excel
             excelApp.Quit();
-         
+
             //釋放Excel資源
             System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
             wBook = null;
@@ -323,11 +348,12 @@ namespace Inference
             wRange = null;
             excelApp = null;
             GC.Collect();
-         
+
             //Console.Read();
         }
-        enum MessageType{
-            entrancebutton,
+        enum MessageType
+        {
+            entranceButton,
             flowerbutton,
             leafbutton,
             circlebutton,
