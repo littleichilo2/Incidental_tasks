@@ -15,34 +15,138 @@ namespace Inference
 {
     public partial class Form1 : Form
     {
-        List<int> titlelist = new List<int>();
-        List<int> flowerlist = new List<int>();
-        List<int> leaflist = new List<int>();
-        List<int> circlelist = new List<int>();
-        List<int> Xlist = new List<int>();
+        List<int> titlelist = new List<int>(){
+            1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,
+            30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52
+        };
+        List<int> flowerlist = new List<int>(){
+            1,10,16,21,25,32,39,46
+        };
+        List<int> leaflist = new List<int>(){
+            1,10,16,21,25,32,39,46
+        };
+        List<int> circlelist = new List<int>(){
+            3,4,5,7,8,9,12,13,14,15,18,19,20,23,24,27,28,29,
+            30,31,34,35,36,37,38,41,42,43,44,45,48,49,50,51,52
+        };
+        List<int> Xlist = new List<int>(){
+            3,4,5,7,8,9,12,13,14,15,18,19,20,23,24,27,28,29,
+            30,31,34,35,36,37,38,41,42,43,44,45,48,49,50,51,52
+        };
         List<int> list_1 = new List<int>();
         List<int> list_2 = new List<int>();
         List<int> list_3 = new List<int>();
-        List<int> again_buttonlist = new List<int>();
-        List<int> next_buttonlist = new List<int>();
-        List<string> musicfile_list = new List<string>(){
-            "open-i.mp3","practice1.mp3","pi1bgquestion.mp3","question1choice1.mp3","attention-i.mp3","story.mp3","pi-text1.mp3",
-            "question2choice2.mp3","pquestion-i11.mp3","pquestion-i12.mp3","pquestion-i13.mp3","practice 2.mp3","pi2bgquestion.mp3",
-            "pi-text2.mp3","pquestion-i21.mp3","pquestion-i22.mp3","pquestion-i23.mp3","pquestion-i24.mp3","Istart1.mp3","ibgquestion1.mp3",
-            "question1choice1.mp3","attention-i.mp3","story.mp3","i-text1.mp3","question2choice2.mp3","question-i11.mp3","question-i12.mp3",
-            "question-i13.mp3","question-i14.mp3","istart2.mp3","ibgquestion2.mp3","question1choice1.mp3","attention-i.mp3","story.mp3",
-            "i-text2.mp3","question2choice2.mp3","question-i21.mp3","question-i22.mp3","question-i23.mp3","Istart3.mp3","Ibgquestion3.mp3",
-            "question1choice1.mp3","attention-i.mp3","story.mp3","i-text3.mp3","question2choice2.mp3","question-i31.mp3","question-i32.mp3",
-            "Istart4.mp3","ibgquestion1.mp3","question1choice1.mp3","attention-i.mp3","story.mp3","i-text4.mp3","question2choice2.mp3","question-i41.mp3",
-            "question-i42.mp3","question-i43.mp3","question-i44.mp3","question-i45.mp3","Istart5.mp3","Ibgquestion5.mp3","question1choice1.mp3","attention-i.mp3",
-            "story.mp3","i-text5.mp3","question2choice2.mp3","question-i51.mp3","question-i52.mp3","question-i53.mp3","question-i54.mp3","question-i55.mp3",
-            "Istart6.mp3","Ibgquestion6.mp3","question1choice1.mp3","attention-i.mp3","story.mp3","i-text6.mp3","question2choice2.mp3",
-            "question-i61.mp3","question-i62.mp3","question-i63.mp3","question-i64.mp3","question-i65.mp3","Istart7.mp3","Ibgquestion7.mp3",
-            "question1choice1.mp3","attention-i.mp3","story.mp3","i-text7.mp3","question2choice2.mp3","question-i71.mp3","question-i72.mp3",
-            "question-i73.mp3","question-i74.mp3","question-i75.mp3"
+        List<int> again_buttonlist = new List<int>(){
+            3,4,5,7,8,9,12,13,14,15,18,19,20,23,24,27,28,29,
+            30,31,34,35,36,37,38,41,42,43,44,45,48,49,50,51,52
         };
-        List<int> music_list = new List<int>();
+        List<int> next_buttonlist = new List<int>(){
+            3,4,5,7,8,9,12,13,14,15,18,19,20,23,24,27,28,29,
+            30,31,34,35,36,37,38,41,42,43,44,45,48,49,50,51,52
+        };
+        List<string> musicfile_list = new List<string>(){
+            "open-i.mp3","practice1.mp3","pi1bgquestion.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","pi-text1.mp3","question2choice2.mp3",
+            "pquestion-i11.mp3",
+            "pquestion-i12.mp3",
+            "pquestion-i13.mp3",
+            "practice 2.mp3","pi2bgquestion.mp3","pi-text2.mp3","pquestion-i21.mp3",
+            "pquestion-i22.mp3",
+            "pquestion-i23.mp3",
+            "pquestion-i24.mp3",
+            "Istart1.mp3","ibgquestion1.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text1.mp3","question2choice2.mp3",
+            "question-i11.mp3",
+            "question-i12.mp3",
+            "question-i13.mp3",
+            "question-i14.mp3",
+            "istart2.mp3","ibgquestion2.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text2.mp3","question2choice2.mp3",
+            "question-i21.mp3",
+            "question-i22.mp3",
+            "question-i23.mp3",
+            "Istart3.mp3","Ibgquestion3.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text3.mp3","question2choice2.mp3",
+            "question-i31.mp3",
+            "question-i32.mp3",
+            "Istart4.mp3","ibgquestion1.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text4.mp3","question2choice2.mp3",
+            "question-i41.mp3",
+            "question-i42.mp3",
+            "question-i43.mp3",
+            "question-i44.mp3",
+            "question-i45.mp3",
+            "Istart5.mp3","Ibgquestion5.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text5.mp3","question2choice2.mp3",
+            "question-i51.mp3",
+            "question-i52.mp3",
+            "question-i53.mp3",
+            "question-i54.mp3",
+            "question-i55.mp3",
+            "Istart6.mp3","Ibgquestion6.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text6.mp3","question2choice2.mp3",
+            "question-i61.mp3",
+            "question-i62.mp3",
+            "question-i63.mp3",
+            "question-i64.mp3",
+            "question-i65.mp3",
+            "Istart7.mp3","Ibgquestion7.mp3","question1choice1.mp3",
+            "attention-i.mp3","story.mp3","i-text7.mp3","question2choice2.mp3",
+            "question-i71.mp3",
+            "question-i72.mp3",
+            "question-i73.mp3",
+            "question-i74.mp3",
+            "question-i75.mp3"
+        };
+        
+        List<int> music_list = new List<int>(){0};
+        music_list.Add(new List<int>{0,1,2,3});
+        music_list.Add(new List<int>{4,5,6,7});
+        music_list.Add(new List<int>{8});
+        music_list.Add(new List<int>{9});
+        music_list.Add(new List<int>{10});
+        music_list.Add(new List<int>{11,12,13,14});
+        music_list.Add(new List<int>{15});
+        music_list.Add(new List<int>{16});
+        music_list.Add(new List<int>{17});
+        music_list.Add(new List<int>{18,19,20});
+        music_list.Add(new List<int>{21,22,23,24});
+        music_list.Add(new List<int>{25});
+        music_list.Add(new List<int>{26});
+        music_list.Add(new List<int>{27});
+        music_list.Add(new List<int>{28});
+        music_list.Add(new List<int>{29,30,31});
+        music_list.Add(new List<int>{32,33,34,35});
+        music_list.Add(new List<int>{36});
+        music_list.Add(new List<int>{37});
+        music_list.Add(new List<int>{38});
+        music_list.Add(new List<int>{39,40,41});
+        music_list.Add(new List<int>{42,43,44,45});
+        music_list.Add(new List<int>{46});
+        music_list.Add(new List<int>{47});
+        music_list.Add(new List<int>{48,49,50});
+        music_list.Add(new List<int>{51,52,53,54});
+        music_list.Add(new List<int>{55});
+        music_list.Add(new List<int>{56});
+        music_list.Add(new List<int>{57});
+        music_list.Add(new List<int>{58});
+        music_list.Add(new List<int>{59});
+        music_list.Add(new List<int>{60,61,62});
+        music_list.Add(new List<int>{63,64,65,66});
+        music_list.Add(new List<int>{67});
+        music_list.Add(new List<int>{68});
+        music_list.Add(new List<int>{69});
+        music_list.Add(new List<int>{70});
+        music_list.Add(new List<int>{71});
+        music_list.Add(new List<int>{72,73,74});
+        music_list.Add(new List<int>{75,76,77,78});
+        music_list.Add(new List<int>{79});
+        music_list.Add(new List<int>{80});
+        music_list.Add(new List<int>{81});
+        music_list.Add(new List<int>{82});
+        music_list.Add(new List<int>{83});
 
+        
         List<string> answerlist = new List<string>();
         List<double> answer_timelist = new List<double>();
         List<int> againtimes_list = new List<int>();
@@ -77,8 +181,15 @@ namespace Inference
             frame = frame + 1;
             datetimeflag = DateTime.Now;
             //music play
-            //musicplayer.URL = music_list[frame];
-            musicplayer.controls.play();
+            WMPLib.IWMPPlaylist playlist = musicplayer.playlistCollection.newPlaylist("playlist");
+            //axWindowsMediaPlayer1
+            for(int k = 0; k < music_list[frame].Count();k++){
+                WMPLib.IWMPMedia media = musicplayer.newMedia(musicfile_list[music_list[frame][k]]);
+                playlist.appendItem(media);
+            }
+            musicplayer.currentPlaylist = playlist;
+            musicplayer.settings.setMode("shuffle",true);
+            musicplayer.Ctlcontrols.play();
 
             //What is going to appear on the panel
             if (titlelist.IndexOf(frame) != -1)
@@ -160,8 +271,15 @@ namespace Inference
         private void againbutton_click(object sender, EventArgs e)
         {
             again += 1;
-            //musicplayer.URL = music_list[frame];
-            musicplayer.controls.play();
+            WMPLib.IWMPPlaylist playlist = musicplayer.playlistCollection.newPlaylist("playlist");
+            //axWindowsMediaPlayer1
+            for(int k = 0; k < music_list[frame].Count();k++){
+                WMPLib.IWMPMedia media = musicplayer.newMedia(musicfile_list[music_list[frame][k]]);
+                playlist.appendItem(media);
+            }
+            musicplayer.currentPlaylist = playlist;
+            musicplayer.settings.setMode("shuffle",true);
+            musicplayer.Ctlcontrols.play();
         }
 
 
