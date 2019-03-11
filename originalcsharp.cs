@@ -483,3 +483,15 @@ namespace Inference
         }
     }
 }
+//Write new Line in Excel 
+Excel.Worksheet sheet = workbook.Sheets[1];
+Excel.Range range = sheet.UsedRange;
+int rows_count = range.Rows.Count;
+string output = null; 
+//String variable output is used to store value you've deleted in string format.
+//Example:
+//  excelApp.Cells[rows_count, 6] = answerlist[0];
+//
+workbook.Save(); 
+workbook.Close(false, FileName, null);
+System.Runtime.InteropServices.Marshal.ReleaseComObject(workbook);
