@@ -23,92 +23,60 @@ namespace Inference
         string gender;
         List<int> titlelist = new List<int>(){
             1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,
-            30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54
+            30,31,32,33,34,35,36,37,38,39
         };
-        List<int> flowerlist = new List<int>(){
-            1,6,12,18,23,27,34,41,48
-        };
-        List<int> leaflist = new List<int>(){
-            1,6,12,18,23,27,34,41,48
-        };
-        List<int> circlelist = new List<int>(){
-            3,4,5,8,9,10,14,15,16,17,20,21,22,25,26,29,30,31,
-            32,36,37,38,39,43,44,45,46,50,51,52,53
-        };
-        List<int> Xlist = new List<int>(){
-            3,4,5,8,9,10,14,15,16,17,20,21,22,25,26,29,30,31,
-            32,36,37,38,39,43,44,45,46,50,51,52,53
-        };
-        List<int> list_1 = new List<int>() { 11,33,40,47,54 };
-        List<int> list_2 = new List<int>() { 11, 33, 40, 47, 54 };
-        List<int> list_3 = new List<int>() { 11, 33, 40, 47, 54 };
+        List<int> list_1 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
+        List<int> list_2 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
+        List<int> list_3 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
         List<int> again_buttonlist = new List<int>(){
-            3,4,5,8,9,10,11,14,15,16,17,20,21,22,25,26,29,30,31,
-            32,33,36,37,38,39,40,43,44,45,46,47,50,51,52,53,54
+            2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39
         };
         List<int> next_buttonlist = new List<int>(){
             2,7,13,19,24,28,35,42,49
         };
         List<string> musicfile_list = new List<string>(){
-            "open-i.mp3","practice1.mp3","pi1bgquestion.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","pi-text1.mp3","question2choice2.mp3",
-            "pquestion-i11.mp3",
-            "pquestion-i12.mp3",
-            "pquestion-i13.mp3",
-            "practice 2.mp3","pi2bgquestion.mp3",
-            "pi-text2.mp3",
-            "pquestion-i21.mp3",
-            "pquestion-i22.mp3",
-            "pquestion-i23.mp3",
-            "pquestion-i24.mp3",
-            "Istart1.mp3","ibgquestion1.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text1.mp3","question2choice2.mp3",
-            "question-i11.mp3",
-            "question-i12.mp3",
-            "question-i13.mp3",
-            "question-i14.mp3",
-            "istart2.mp3","ibgquestion2.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text2.mp3","question2choice2.mp3",
-            "question-i21.mp3",
-            "question-i22.mp3",
-            "question-i23.mp3",
-            "Istart3.mp3","Ibgquestion3.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text3.mp3","question2choice2.mp3",
-            "question-i31.mp3",
-            "question-i32.mp3",
-            "Istart4.mp3","ibgquesiton4.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text4.mp3","question2choice2.mp3",
-            "question-i41.mp3",
-            "question-i42.mp3",
-            "question-i43.mp3",
-            "question-i44.mp3",
-            "question-i45.mp3",
-            "Istart5.mp3","Ibgquestion5.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text5.mp3","question2choice2.mp3",
-            "question-i51.mp3",
-            "question-i52.mp3",
-            "question-i53.mp3",
-            "question-i54.mp3",
-            "question-i55.mp3",
-            "Istart6.mp3","Ibgquestion6.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text6.mp3","question2choice2.mp3",
-            "question-i61.mp3",
-            "question-i62.mp3",
-            "question-i63.mp3",
-            "question-i64.mp3",
-            "question-i65.mp3",
-            "Istart7.mp3","Ibgquestion7.mp3","question1choice1.mp3",
-            "attention-i.mp3","story.mp3","i-text7.mp3","question2choice2.mp3",
-            "question-i71.mp3",
-            "question-i72.mp3",
-            "question-i73.mp3",
-            "question-i74.mp3",
-            "question-i75.mp3",
-            "question1choice1.mp3",
-            "question2choice2.mp3"
+            "1open-lc.mp3","2guide-lc.mp3","3plc-text1.mp3",
+            "4plc-choice1.mp3","5plc-answer1.mp3",
+            "6plc-choice2.mp3","7plc-answer2.mp3",
+            "8Istart1.mp3","2guide-lc.mp3","9lc-text11.mp3",
+            "10lc-choice11.mp3",
+            "11lc-choice12.mp3",
+            "12lc-choice13.mp3",
+            "13lc-choice14.mp3",
+            "14lc-text12.mp3",
+            "15lc-choice21.mp3",
+            "16lc-choice22.mp3",
+            "17lc-choice23.mp3",
+            "18lc-choice24.mp3",
+            "19lc-text13.mp3",
+            "20lc-choice31.mp3",
+            "21lc-choice32.mp3",
+            "22lc-choice33.mp3",
+            "23open-dic.mp3","24guide-dic2.mp3","25pdic-text21.mp3",
+            "26pdic-choice21.mp3","27pdic-choice22.mp3",
+            "28Istart2.mp3","29dic-text11.mp3",
+            "30dic-choice11.mp3",
+            "31dic-choice12.mp3",
+            "32dic-choice13.mp3",
+            "33dic-text12.mp3",
+            "34dic-choice21.mp3",
+            "35dic-choice22.mp3",
+            "36dic-choice23.mp3",
+            "37dic-text13.mp3",
+            "38dic-choice31.mp3",
+            "39dic-choice32.mp3",
+            "40dic-choice33.mp3",
+            "41dic-text14.mp3",
+            "42dic-choice41.mp3",
+            "43dic-choice42.mp3",
+            "44dic-choice43.mp3",
+            "45dic-text15.mp3",
+            "46dic-choice51.mp3",
+            "47dic-choice52.mp3",
+            "48dic-choice53.mp3"
         };
-        List<List<int>> music_list = new List<List<int>>() ;
-        
+        List<List<int>> music_list = new List<List<int>>();
+
 
         List<string> answerlist = new List<string>();
         List<double> answer_timelist = new List<double>();
@@ -122,84 +90,63 @@ namespace Inference
         {
             InitializeComponent();
             entranceButton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.entranceButton); };
-            flowerbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.flowerbutton); };
-            leafbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.leafbutton); };
-            circlebutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.circlebutton); };
-            Xbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Xbutton); };
+            
             Button1.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Button1); };
             Button2.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Button2); };
             Button3.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.Button3); };
             nextbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.nextbutton); };
             music_list.Add(new List<int> { 0 });
-            music_list.Add(new List<int> { 0, 1, 2, 3 });
-            music_list.Add(new List<int> { 4, 5, 6, 7 });
-            music_list.Add(new List<int> { 8 });
-            music_list.Add(new List<int> { 9 });
+            music_list.Add(new List<int> { 0, 1, 2 });
+            music_list.Add(new List<int> { 3,4 });
+            music_list.Add(new List<int> { 5,6 });
+            music_list.Add(new List<int> { 7,8,9 });
             music_list.Add(new List<int> { 10 });
-            music_list.Add(new List<int> { 11, 12 ,96 });
-            music_list.Add(new List<int> { 13,97  });
-            music_list.Add(new List<int> { 14  });
+            music_list.Add(new List<int> { 11 });
+            music_list.Add(new List<int> { 12 });
+            music_list.Add(new List<int> { 13 });
+            music_list.Add(new List<int> { 14 });
             music_list.Add(new List<int> { 15 });
             music_list.Add(new List<int> { 16 });
             music_list.Add(new List<int> { 17 });
-            music_list.Add(new List<int> { 18, 19, 20 });
-            music_list.Add(new List<int> { 21, 22, 23, 24 });
-            music_list.Add(new List<int> { 25 });
-            music_list.Add(new List<int> { 26 });
-            music_list.Add(new List<int> { 27 });
-            music_list.Add(new List<int> { 28 });
-            music_list.Add(new List<int> { 29, 30, 31 });
-            music_list.Add(new List<int> { 32, 33, 34, 35 });
+            music_list.Add(new List<int> { 18 });
+            music_list.Add(new List<int> { 19 });
+            music_list.Add(new List<int> { 20 });
+            music_list.Add(new List<int> { 21 });
+            music_list.Add(new List<int> { 22 });
+
+            music_list.Add(new List<int> { 23, 24, 25 });
+            music_list.Add(new List<int> { 26, 27 });
+            music_list.Add(new List<int> { 28,24,29 });
+            music_list.Add(new List<int> { 30 });
+            music_list.Add(new List<int> { 31 });
+            music_list.Add(new List<int> { 32 });
+            music_list.Add(new List<int> { 33 });
+            music_list.Add(new List<int> { 34 });
+            music_list.Add(new List<int> { 35 });
             music_list.Add(new List<int> { 36 });
             music_list.Add(new List<int> { 37 });
             music_list.Add(new List<int> { 38 });
-            music_list.Add(new List<int> { 39, 40, 41 });
-            music_list.Add(new List<int> { 42, 43, 44, 45 });
+            music_list.Add(new List<int> { 39 });
+            music_list.Add(new List<int> { 40 });
+            music_list.Add(new List<int> { 41 });
+            music_list.Add(new List<int> { 42 });
+            music_list.Add(new List<int> { 43 });
+            music_list.Add(new List<int> { 44 });
+            music_list.Add(new List<int> { 45 });
             music_list.Add(new List<int> { 46 });
             music_list.Add(new List<int> { 47 });
-            music_list.Add(new List<int> { 48, 49, 50 });
-            music_list.Add(new List<int> { 51, 52, 53, 54 });
-            music_list.Add(new List<int> { 55 });
-            music_list.Add(new List<int> { 56 });
-            music_list.Add(new List<int> { 57 });
-            music_list.Add(new List<int> { 58 });
-            music_list.Add(new List<int> { 59 });
-            music_list.Add(new List<int> { 60, 61, 62 });
-            music_list.Add(new List<int> { 63, 64, 65, 66 });
-            music_list.Add(new List<int> { 67 });
-            music_list.Add(new List<int> { 68 });
-            music_list.Add(new List<int> { 69 });
-            music_list.Add(new List<int> { 70 });
-            music_list.Add(new List<int> { 71 });
-            music_list.Add(new List<int> { 72, 73, 74 });
-            music_list.Add(new List<int> { 75, 76, 77, 78 });
-            music_list.Add(new List<int> { 79 });
-            music_list.Add(new List<int> { 80 });
-            music_list.Add(new List<int> { 81 });
-            music_list.Add(new List<int> { 82 });
-            music_list.Add(new List<int> { 83 });
-            music_list.Add(new List<int> { 84, 85, 86 });
-            music_list.Add(new List<int> { 87, 88, 89,90  });
-            music_list.Add(new List<int> { 91 });
-            music_list.Add(new List<int> { 92 });
-            music_list.Add(new List<int> { 93 });
-            music_list.Add(new List<int> { 94 });
-            music_list.Add(new List<int> { 95 });
+            music_list.Add(new List<int> { 48 });
         }
 
         private void button_Click(object sender, EventArgs e, MessageType type)
         {
-            
+
             //add the againtimes into list before the next frame
             if (again_buttonlist.IndexOf(frame) != -1)
                 againtimes_list.Add(again);
             again = 0;
-            titlelabel.Visible=false;
-            flowerbutton.Visible = false;
-            leafbutton.Visible = false;
-
-            circlebutton.Visible = false;
-            Xbutton.Visible = false;
+            titlelabel.Visible = false;
+            
             Button1.Visible = false;
             Button2.Visible = false;
             Button3.Visible = false;
@@ -207,16 +154,17 @@ namespace Inference
             nextbutton.Visible = false;
 
             frame = frame + 1;
-            Console.WriteLine("frame:"+frame);
-            
+            Console.WriteLine("frame:" + frame);
+
             //music play
             WMPLib.IWMPPlaylist playlist = musicplayer.playlistCollection.newPlaylist("playlist");
             //axWindowsMediaPlayer1
             TimeSpan totaltime = TimeSpan.FromMilliseconds(0);
-            if(frame < 55) { 
+            if (frame < 55)
+            {
                 for (int k = 0; k < music_list[frame].Count(); k++)
                 {
-                
+
                     WMPLib.IWMPMedia media = musicplayer.newMedia(musicfile_list[music_list[frame][k]]);
                     totaltime = totaltime + TimeSpan.FromMilliseconds(media.duration);
                     playlist.appendItem(media);
@@ -229,22 +177,6 @@ namespace Inference
             if (titlelist.IndexOf(frame) != -1)
             {
                 titlelabel.Visible = true;
-            }
-            if (flowerlist.IndexOf(frame) != -1)
-            {
-                flowerbutton.Visible = true;
-            }
-            if (leaflist.IndexOf(frame) != -1)
-            {
-                leafbutton.Visible = true;
-            }
-            if (circlelist.IndexOf(frame) != -1)
-            {
-                circlebutton.Visible = true;
-            }
-            if (Xlist.IndexOf(frame) != -1)
-            {
-                Xbutton.Visible = true;
             }
             if (list_1.IndexOf(frame) != -1)
             {
@@ -272,21 +204,8 @@ namespace Inference
             }
 
             //Record the response from the button
-            if (type.Equals(MessageType.circlebutton))
-            {
-                datetime_now = DateTime.Now;
-                answer_timelist.Add((datetime_now - datetimeflag-totaltime).TotalMilliseconds);
-                answerlist.Add("O");
-                datetimeflag = DateTime.Now;
-            }
-            else if (type.Equals(MessageType.Xbutton))
-            {
-                datetime_now = DateTime.Now;
-                answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
-                answerlist.Add("X");
-                datetimeflag = DateTime.Now;
-            }
-            else if (type.Equals(MessageType.Button1))
+            
+            if (type.Equals(MessageType.Button1))
             {
                 datetime_now = DateTime.Now;
                 answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
@@ -311,7 +230,7 @@ namespace Inference
             {
                 teachingpanel.Visible = true;
                 datetimeflag = DateTime.Now;
-                number =textBox3.Text;
+                number = textBox3.Text;
                 namelist.Add(textBox1.Text);
                 namelist.Add(textBox2.Text);
                 birthlist.Add(dateTimePicker1.Text);
@@ -320,7 +239,7 @@ namespace Inference
                 {
                     gender = "男";
                 }
-                else if(radioButton2.Checked)
+                else if (radioButton2.Checked)
                 {
                     gender = "女";
                 }
@@ -354,7 +273,7 @@ namespace Inference
         {
             string nowpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
-            string pathFile = nowpath +"\\推論理解"+ namelist[0] + namelist[1];
+            string pathFile = nowpath + "\\推論理解" + namelist[0] + namelist[1];
 
 
             Excel.Application excelApp = new Excel.Application();
@@ -478,13 +397,14 @@ namespace Inference
                 wRange.Interior.Color = ColorTranslator.ToOle(Color.DimGray);*/
 
                 // 設定第2列資料
-                
+
                 excelApp.Cells[2, 1] = number;//流水號
-                excelApp.Cells[2, 2] = namelist[0]+namelist[1];//姓名
+                excelApp.Cells[2, 2] = namelist[0] + namelist[1];//姓名
                 excelApp.Cells[2, 3] = birthlist[0];//出生年月
                 excelApp.Cells[2, 4] = testlist[0];//施測年月
                 excelApp.Cells[2, 5] = gender;//性別
-                if (answerlist[0] == "O") {
+                if (answerlist[0] == "O")
+                {
                     excelApp.Cells[2, 6] = "1";
                 }
                 else
@@ -799,11 +719,11 @@ namespace Inference
                 //wRange.Select();
                 //wRange.Columns.AutoFit();
 
-                
-                    //另存活頁簿
+
+                //另存活頁簿
                 wBook.SaveAs(pathFile);
-                    //Console.WriteLine("儲存文件於 " + Environment.NewLine + pathFile);
-                
+                //Console.WriteLine("儲存文件於 " + Environment.NewLine + pathFile);
+
             }
             catch (Exception ex)
             {
@@ -811,8 +731,8 @@ namespace Inference
             }
 
             //關閉活頁簿
-            
-            
+
+
             //關閉Excel
             excelApp.Quit();
 
@@ -829,10 +749,7 @@ namespace Inference
         enum MessageType
         {
             entranceButton,
-            flowerbutton,
-            leafbutton,
-            circlebutton,
-            Xbutton,
+            
             Button1,
             Button2,
             Button3,
