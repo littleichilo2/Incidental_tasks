@@ -26,13 +26,13 @@ namespace Inference
             30,31,32,33,34,35,36,37,38,39
         };
         List<int> list_1 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
-        List<int> list_2 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
-        List<int> list_3 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
+        List<int> list_2 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
+        List<int> list_3 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
         List<int> again_buttonlist = new List<int>(){
             2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39
         };
         List<int> next_buttonlist = new List<int>(){
-            2,7,13,19,24,28,35,42,49
+            2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39
         };
         List<string> musicfile_list = new List<string>(){
             "1open-lc.mp3","2guide-lc.mp3","3plc-text1.mp3",
@@ -205,27 +205,6 @@ namespace Inference
 
             //Record the response from the button
             
-            if (type.Equals(MessageType.Button1))
-            {
-                datetime_now = DateTime.Now;
-                answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
-                answerlist.Add("1");
-                datetimeflag = DateTime.Now;
-            }
-            else if (type.Equals(MessageType.Button2))
-            {
-                datetime_now = DateTime.Now;
-                answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
-                answerlist.Add("2");
-                datetimeflag = DateTime.Now;
-            }
-            else if (type.Equals(MessageType.Button3))
-            {
-                datetime_now = DateTime.Now;
-                answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
-                answerlist.Add("3");
-                datetimeflag = DateTime.Now;
-            }
             else if (type.Equals(MessageType.entranceButton))
             {
                 teachingpanel.Visible = true;
@@ -251,6 +230,38 @@ namespace Inference
 
         }
 
+        private void Button1.CheckedChanged(object sender,EventArgs e)
+        {
+            Button1.Enable = false;
+            Button2.Enable = false;
+            Button3.Enable = false;
+            datetime_now = DateTime.Now;
+            answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
+            answerlist.Add("1");
+            datetimeflag = DateTime.Now;
+        }
+        private void Button2.CheckedChanged(object sender,EventArgs e)
+        {
+            Button1.Enable = false;
+            Button2.Enable = false;
+            Button3.Enable = false;
+            datetime_now = DateTime.Now;
+            answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
+            answerlist.Add("2");
+            datetimeflag = DateTime.Now;
+        }
+        private void Button3.CheckedChanged(object sender,EventArgs e)
+        {
+            Button1.Enable = false;
+            Button2.Enable = false;
+            Button3.Enable = false;
+            datetime_now = DateTime.Now;
+            answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
+            answerlist.Add("3");
+            datetimeflag = DateTime.Now;
+        }
+
+        
         private void againbutton_click(object sender, EventArgs e)
         {
             again += 1;
@@ -379,15 +390,7 @@ namespace Inference
                 excelApp.Cells[1, 81] = "第二十六題";
                 excelApp.Cells[1, 82] = "作答時間";
                 excelApp.Cells[1, 83] = "重複次數";
-                excelApp.Cells[1, 84] = "第二十七題";
-                excelApp.Cells[1, 85] = "作答時間";
-                excelApp.Cells[1, 86] = "重複次數";
-                excelApp.Cells[1, 87] = "第二十八題";
-                excelApp.Cells[1, 88] = "作答時間";
-                excelApp.Cells[1, 89] = "重複次數";
-                excelApp.Cells[1, 90] = "第二十九題";
-                excelApp.Cells[1, 91] = "作答時間";
-                excelApp.Cells[1, 92] = "重複次數";
+                
 
 
                 // 設定第1列顏色
