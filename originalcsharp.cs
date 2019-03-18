@@ -11,7 +11,7 @@ using Excel = Microsoft.Office.Interop.Excel;
 
 
 
-namespace Inference
+namespace Listening_comprehension
 {
     public partial class Form1 : Form
     {
@@ -21,13 +21,14 @@ namespace Inference
         List<string> answerList = new List<string>();
         string number;
         string gender;
+        TimeSpan totaltime = TimeSpan.FromMilliseconds(0);
         List<int> titlelist = new List<int>(){
             1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,
             30,31,32,33,34,35,36,37,38,39
         };
-        List<int> list_1 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
-        List<int> list_2 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
-        List<int> list_3 = new List<int>() { 2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39 };
+        List<int> list_1 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
+        List<int> list_2 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
+        List<int> list_3 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
         List<int> again_buttonlist = new List<int>(){
             2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39
         };
@@ -36,7 +37,7 @@ namespace Inference
         };
         List<int> next_buttonlist2 = new List<int>(){
           1,4,9,14,18,20,24,28,32,36
-        }
+        };
         List<string> musicfile_list = new List<string>(){
             "1open-lc.mp3","2guide-lc.mp3","3plc-text1.mp3",
             "4plc-choice1.mp3","5plc-answer1.mp3",
@@ -96,9 +97,9 @@ namespace Inference
             nextbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.nextbutton); };
             music_list.Add(new List<int> { 0 });
             music_list.Add(new List<int> { 0, 1, 2 });
-            music_list.Add(new List<int> { 3,4 });
-            music_list.Add(new List<int> { 5,6 });
-            music_list.Add(new List<int> { 7,8,9 });
+            music_list.Add(new List<int> { 3, 4 });
+            music_list.Add(new List<int> { 5, 6 });
+            music_list.Add(new List<int> { 7, 8, 9 });
             music_list.Add(new List<int> { 10 });
             music_list.Add(new List<int> { 11 });
             music_list.Add(new List<int> { 12 });
@@ -115,7 +116,7 @@ namespace Inference
 
             music_list.Add(new List<int> { 23, 24, 25 });
             music_list.Add(new List<int> { 26, 27 });
-            music_list.Add(new List<int> { 28,24,29 });
+            music_list.Add(new List<int> { 28, 24, 29 });
             music_list.Add(new List<int> { 30 });
             music_list.Add(new List<int> { 31 });
             music_list.Add(new List<int> { 32 });
@@ -145,7 +146,7 @@ namespace Inference
                 againtimes_list.Add(again);
             again = 0;
             titlelabel.Visible = false;
-            
+
             Button1.Visible = false;
             Button2.Visible = false;
             Button3.Visible = false;
@@ -158,8 +159,8 @@ namespace Inference
             //music play
             WMPLib.IWMPPlaylist playlist = musicplayer.playlistCollection.newPlaylist("playlist");
             //axWindowsMediaPlayer1
-            TimeSpan totaltime = TimeSpan.FromMilliseconds(0);
-            if (frame < 55)
+            totaltime = TimeSpan.FromMilliseconds(0);
+            if (frame < 39)
             {
                 for (int k = 0; k < music_list[frame].Count(); k++)
                 {
@@ -196,11 +197,11 @@ namespace Inference
             if (next_buttonlist.IndexOf(frame) != -1)
             {
                 nextbutton.Visible = true;
-                nextbutton.Content = "下一題";
+                nextbutton.Text = "下一題";
             }
             if (next_buttonlist2.IndexOf(frame) != -1)
             {
-                nextbutton.Content = "開始答題";
+                nextbutton.Text = "開始答題";
                 nextbutton.Visible = true;
             }
             if (frame == 40)
@@ -209,7 +210,7 @@ namespace Inference
             }
 
             //Record the response from the button
-            
+
             if (type.Equals(MessageType.entranceButton))
             {
                 teachingpanel.Visible = true;
@@ -235,38 +236,38 @@ namespace Inference
 
         }
 
-        private void Button1.CheckedChanged(object sender,EventArgs e)
+        private void Button1_CheckedChanged(object sender, EventArgs e)
         {
-            Button1.Enable = false;
-            Button2.Enable = false;
-            Button3.Enable = false;
+            Button1.Enabled = false;
+            Button2.Enabled = false;
+            Button3.Enabled = false;
             datetime_now = DateTime.Now;
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("1");
             datetimeflag = DateTime.Now;
         }
-        private void Button2.CheckedChanged(object sender,EventArgs e)
+        private void Button2_CheckedChanged(object sender, EventArgs e)
         {
-            Button1.Enable = false;
-            Button2.Enable = false;
-            Button3.Enable = false;
+            Button1.Enabled = false;
+            Button2.Enabled = false;
+            Button3.Enabled = false;
             datetime_now = DateTime.Now;
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("2");
             datetimeflag = DateTime.Now;
         }
-        private void Button3.CheckedChanged(object sender,EventArgs e)
+        private void Button3_CheckedChanged(object sender, EventArgs e)
         {
-            Button1.Enable = false;
-            Button2.Enable = false;
-            Button3.Enable = false;
+            Button1.Enabled = false;
+            Button2.Enabled = false;
+            Button3.Enabled = false;
             datetime_now = DateTime.Now;
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("3");
             datetimeflag = DateTime.Now;
         }
 
-        
+
         private void againbutton_click(object sender, EventArgs e)
         {
             again += 1;
@@ -293,281 +294,293 @@ namespace Inference
 
 
             Excel.Application excelApp = new Excel.Application();
-            try{
+            try
+            {
                 Excel.Workbook wBook = excelApp.Workbooks.Open(pathFile);
-                Excel.Worksheet wSheet = wBoook.Sheets["推論理解"];
+                Excel.Worksheet wSheet = wBook.Sheets["推論理解"];
                 Excel.Range wRange = wSheet.UsedRange;
-                excelApp.Cells[wRange.Rows.Count+1, 1] = number;//流水號
-                excelApp.Cells[wRange.Rows.Count+1, 2] = namelist[0] + namelist[1];//姓名
-                excelApp.Cells[wRange.Rows.Count+1, 3] = birthlist[0];//出生年月
-                excelApp.Cells[wRange.Rows.Count+1, 4] = testlist[0];//施測年月
-                excelApp.Cells[wRange.Rows.Count+1, 5] = gender;//性別
+                excelApp.Cells[wRange.Rows.Count + 1, 1] = number;//流水號
+                excelApp.Cells[wRange.Rows.Count + 1, 2] = namelist[0] + namelist[1];//姓名
+                excelApp.Cells[wRange.Rows.Count + 1, 3] = birthlist[0];//出生年月
+                excelApp.Cells[wRange.Rows.Count + 1, 4] = testlist[0];//施測年月
+                excelApp.Cells[wRange.Rows.Count + 1, 5] = gender;//性別
                 if (answerlist[0] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 6] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 6] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 6] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 6] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 7] = answer_timelist[0];
-                excelApp.Cells[wRange.Rows.Count+1, 8] = againtimes_list[0];
+                excelApp.Cells[wRange.Rows.Count + 1, 7] = answer_timelist[0];
+                excelApp.Cells[wRange.Rows.Count + 1, 8] = againtimes_list[0];
                 if (answerlist[1] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 9] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 9] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 9] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 9] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 10] = answer_timelist[1];
-                excelApp.Cells[wRange.Rows.Count+1, 11] = againtimes_list[1];
-                if (answerlist[wRange.Rows.Count+1] == "")
+                excelApp.Cells[wRange.Rows.Count + 1, 10] = answer_timelist[1];
+                excelApp.Cells[wRange.Rows.Count + 1, 11] = againtimes_list[1];
+                if (answerlist[wRange.Rows.Count + 1] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 12] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 12] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 12] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 12] = "0";
                 }
 
-                excelApp.Cells[wRange.Rows.Count+1, 13] = answer_timelist[wRange.Rows.Count+1];
-                excelApp.Cells[wRange.Rows.Count+1, 14] = againtimes_list[wRange.Rows.Count+1];
+                excelApp.Cells[wRange.Rows.Count + 1, 13] = answer_timelist[wRange.Rows.Count + 1];
+                excelApp.Cells[wRange.Rows.Count + 1, 14] = againtimes_list[wRange.Rows.Count + 1];
                 if (answerlist[3] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 15] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 15] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 15] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 15] = "0";
                 }
 
-                excelApp.Cells[wRange.Rows.Count+1, 16] = answer_timelist[3];
-                excelApp.Cells[wRange.Rows.Count+1, 17] = againtimes_list[3];
+                excelApp.Cells[wRange.Rows.Count + 1, 16] = answer_timelist[3];
+                excelApp.Cells[wRange.Rows.Count + 1, 17] = againtimes_list[3];
                 if (answerlist[4] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 18] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 18] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 18] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 18] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 19] = answer_timelist[4];
-                excelApp.Cells[wRange.Rows.Count+1, 20] = againtimes_list[4];
+                excelApp.Cells[wRange.Rows.Count + 1, 19] = answer_timelist[4];
+                excelApp.Cells[wRange.Rows.Count + 1, 20] = againtimes_list[4];
                 if (answerlist[5] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 21] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 21] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 21] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 21] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 22] = answer_timelist[5];
-                excelApp.Cells[wRange.Rows.Count+1, 23] = againtimes_list[5];
+                excelApp.Cells[wRange.Rows.Count + 1, 22] = answer_timelist[5];
+                excelApp.Cells[wRange.Rows.Count + 1, 23] = againtimes_list[5];
                 if (answerlist[6] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 24] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 24] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 24] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 24] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 25] = answer_timelist[6];
-                excelApp.Cells[wRange.Rows.Count+1, 26] = againtimes_list[6];
+                excelApp.Cells[wRange.Rows.Count + 1, 25] = answer_timelist[6];
+                excelApp.Cells[wRange.Rows.Count + 1, 26] = againtimes_list[6];
                 if (answerlist[7] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 27] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 27] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 27] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 27] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 28] = answer_timelist[7];
-                excelApp.Cells[wRange.Rows.Count+1, 29] = againtimes_list[7];
+                excelApp.Cells[wRange.Rows.Count + 1, 28] = answer_timelist[7];
+                excelApp.Cells[wRange.Rows.Count + 1, 29] = againtimes_list[7];
                 if (answerlist[8] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 30] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 30] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 30] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 30] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 31] = answer_timelist[8];
-                excelApp.Cells[wRange.Rows.Count+1, 32] = againtimes_list[8];
+                excelApp.Cells[wRange.Rows.Count + 1, 31] = answer_timelist[8];
+                excelApp.Cells[wRange.Rows.Count + 1, 32] = againtimes_list[8];
                 if (answerlist[9] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 33] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 33] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 33] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 33] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 34] = answer_timelist[9];
-                excelApp.Cells[wRange.Rows.Count+1, 35] = againtimes_list[9];
+                excelApp.Cells[wRange.Rows.Count + 1, 34] = answer_timelist[9];
+                excelApp.Cells[wRange.Rows.Count + 1, 35] = againtimes_list[9];
                 if (answerlist[10] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 36] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 36] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 36] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 36] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 37] = answer_timelist[10];
-                excelApp.Cells[wRange.Rows.Count+1, 38] = againtimes_list[10];
+                excelApp.Cells[wRange.Rows.Count + 1, 37] = answer_timelist[10];
+                excelApp.Cells[wRange.Rows.Count + 1, 38] = againtimes_list[10];
                 if (answerlist[11] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 39] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 39] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 39] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 39] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 40] = answer_timelist[11];
-                excelApp.Cells[wRange.Rows.Count+1, 41] = againtimes_list[11];
+                excelApp.Cells[wRange.Rows.Count + 1, 40] = answer_timelist[11];
+                excelApp.Cells[wRange.Rows.Count + 1, 41] = againtimes_list[11];
                 if (answerlist[12] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 42] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 42] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 42] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 42] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 43] = answer_timelist[12];
-                excelApp.Cells[wRange.Rows.Count+1, 44] = againtimes_list[12];
+                excelApp.Cells[wRange.Rows.Count + 1, 43] = answer_timelist[12];
+                excelApp.Cells[wRange.Rows.Count + 1, 44] = againtimes_list[12];
                 if (answerlist[13] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 45] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 45] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 45] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 45] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 46] = answer_timelist[13];
-                excelApp.Cells[wRange.Rows.Count+1, 47] = againtimes_list[13];
+                excelApp.Cells[wRange.Rows.Count + 1, 46] = answer_timelist[13];
+                excelApp.Cells[wRange.Rows.Count + 1, 47] = againtimes_list[13];
                 if (answerlist[14] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 48] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 48] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 48] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 48] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 49] = answer_timelist[14];
-                excelApp.Cells[wRange.Rows.Count+1, 50] = againtimes_list[14];
+                excelApp.Cells[wRange.Rows.Count + 1, 49] = answer_timelist[14];
+                excelApp.Cells[wRange.Rows.Count + 1, 50] = againtimes_list[14];
                 if (answerlist[15] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 51] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 51] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 51] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 51] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 52] = answer_timelist[15];
-                excelApp.Cells[wRange.Rows.Count+1, 53] = againtimes_list[15];
+                excelApp.Cells[wRange.Rows.Count + 1, 52] = answer_timelist[15];
+                excelApp.Cells[wRange.Rows.Count + 1, 53] = againtimes_list[15];
                 if (answerlist[16] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 54] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 54] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 54] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 54] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 55] = answer_timelist[16];
-                excelApp.Cells[wRange.Rows.Count+1, 56] = againtimes_list[16];
+                excelApp.Cells[wRange.Rows.Count + 1, 55] = answer_timelist[16];
+                excelApp.Cells[wRange.Rows.Count + 1, 56] = againtimes_list[16];
                 if (answerlist[17] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 57] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 57] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 57] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 57] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 58] = answer_timelist[17];
-                excelApp.Cells[wRange.Rows.Count+1, 59] = againtimes_list[17];
+                excelApp.Cells[wRange.Rows.Count + 1, 58] = answer_timelist[17];
+                excelApp.Cells[wRange.Rows.Count + 1, 59] = againtimes_list[17];
                 if (answerlist[18] == "3")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 60] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 60] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 60] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 60] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 61] = answer_timelist[18];
-                excelApp.Cells[wRange.Rows.Count+1, 62] = againtimes_list[18];
+                excelApp.Cells[wRange.Rows.Count + 1, 61] = answer_timelist[18];
+                excelApp.Cells[wRange.Rows.Count + 1, 62] = againtimes_list[18];
                 if (answerlist[19] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 63] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 63] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 63] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 63] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 64] = answer_timelist[19];
-                excelApp.Cells[wRange.Rows.Count+1, 65] = againtimes_list[19];
+                excelApp.Cells[wRange.Rows.Count + 1, 64] = answer_timelist[19];
+                excelApp.Cells[wRange.Rows.Count + 1, 65] = againtimes_list[19];
                 if (answerlist[20] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 66] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 66] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 66] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 66] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 67] = answer_timelist[20];
-                excelApp.Cells[wRange.Rows.Count+1, 68] = againtimes_list[20];
+                excelApp.Cells[wRange.Rows.Count + 1, 67] = answer_timelist[20];
+                excelApp.Cells[wRange.Rows.Count + 1, 68] = againtimes_list[20];
                 if (answerlist[21] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 69] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 69] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 69] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 69] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 70] = answer_timelist[21];
-                excelApp.Cells[wRange.Rows.Count+1, 71] = againtimes_list[21];
+                excelApp.Cells[wRange.Rows.Count + 1, 70] = answer_timelist[21];
+                excelApp.Cells[wRange.Rows.Count + 1, 71] = againtimes_list[21];
                 if (answerlist[22] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 72] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 72] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 72] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 72] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 73] = answer_timelist[22];
-                excelApp.Cells[wRange.Rows.Count+1, 74] = againtimes_list[22];
+                excelApp.Cells[wRange.Rows.Count + 1, 73] = answer_timelist[22];
+                excelApp.Cells[wRange.Rows.Count + 1, 74] = againtimes_list[22];
                 if (answerlist[23] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 75] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 75] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 75] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 75] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 76] = answer_timelist[23];
-                excelApp.Cells[wRange.Rows.Count+1, 77] = againtimes_list[23];
+                excelApp.Cells[wRange.Rows.Count + 1, 76] = answer_timelist[23];
+                excelApp.Cells[wRange.Rows.Count + 1, 77] = againtimes_list[23];
                 if (answerlist[24] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 78] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 78] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 78] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 78] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 79] = answer_timelist[24];
-                excelApp.Cells[wRange.Rows.Count+1, 80] = againtimes_list[24];
+                excelApp.Cells[wRange.Rows.Count + 1, 79] = answer_timelist[24];
+                excelApp.Cells[wRange.Rows.Count + 1, 80] = againtimes_list[24];
                 if (answerlist[25] == "")
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 81] = "1";
+                    excelApp.Cells[wRange.Rows.Count + 1, 81] = "1";
                 }
                 else
                 {
-                    excelApp.Cells[wRange.Rows.Count+1, 81] = "0";
+                    excelApp.Cells[wRange.Rows.Count + 1, 81] = "0";
                 }
-                excelApp.Cells[wRange.Rows.Count+1, 82] = answer_timelist[25];
-                excelApp.Cells[wRange.Rows.Count+1, 83] = againtimes_list[25];
-                wBook.Save()
+                excelApp.Cells[wRange.Rows.Count + 1, 82] = answer_timelist[25];
+                excelApp.Cells[wRange.Rows.Count + 1, 83] = againtimes_list[25];
+                wBook.Save();
+                excelApp.Quit();
 
+                //釋放Excel資源
+                System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                wBook = null;
+                wSheet = null;
+                //wRange = null;
+                excelApp = null;
+                GC.Collect();
+                Application.Exit();
+                //Console.Read();
             }
-            except{
+            catch
+            {
                 Excel.Workbook wBook = excelApp.Workbooks.Add();
                 Excel.Worksheet wSheet = new Excel.Worksheet();
 
@@ -669,7 +682,7 @@ namespace Inference
                     excelApp.Cells[1, 81] = "第二十六題";
                     excelApp.Cells[1, 82] = "作答時間";
                     excelApp.Cells[1, 83] = "重複次數";
-                    
+
 
 
                     // 設定第1列顏色
@@ -947,7 +960,7 @@ namespace Inference
                     }
                     excelApp.Cells[2, 82] = answer_timelist[25];
                     excelApp.Cells[2, 83] = againtimes_list[25];
-                    
+
 
                     // 設定第3列資料
                     //excelApp.Cells[3, 1] = "BB";
@@ -976,37 +989,37 @@ namespace Inference
                     //另存活頁簿
                     wBook.SaveAs(pathFile);
                     //Console.WriteLine("儲存文件於 " + Environment.NewLine + pathFile);
+                    excelApp.Quit();
 
+                    //釋放Excel資源
+                    System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
+                    wBook = null;
+                    wSheet = null;
+                    //wRange = null;
+                    excelApp = null;
+                    GC.Collect();
+                    Application.Exit();
+                    //Console.Read();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine("產生表時出錯！" + Environment.NewLine + ex.Message);
                 }
             }
-            
 
-            
+
+
 
             //關閉活頁簿
 
 
             //關閉Excel
-            excelApp.Quit();
-
-            //釋放Excel資源
-            System.Runtime.InteropServices.Marshal.ReleaseComObject(excelApp);
-            wBook = null;
-            wSheet = null;
-            //wRange = null;
-            excelApp = null;
-            GC.Collect();
-            Application.Exit();
-            //Console.Read();
+            
         }
         enum MessageType
         {
             entranceButton,
-            
+
             Button1,
             Button2,
             Button3,
