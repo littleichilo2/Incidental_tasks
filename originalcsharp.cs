@@ -313,6 +313,7 @@ namespace Listening_comprehension
 
             Excel.Application excelApp = new Excel.Application();
             string[] Files = Directory.GetFiles(nowpath,"*.xlsx");
+            Console.writeLine(Files);
             if (Files.IndexOf("聽覺理解") != -1)
             {
                 Excel.Workbook wBook = excelApp.Workbooks.Open(pathFile);
