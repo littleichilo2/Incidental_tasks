@@ -25,19 +25,19 @@ namespace Listening_comprehension
         TimeSpan totaltime = TimeSpan.FromMilliseconds(0);
         List<int> titlelist = new List<int>(){
             1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,
-            30,31,32,33,34,35,36,37,38,39
+            30,31,32,33,34,35,36,37,38,39,40
         };
-        List<int> list_1 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
-        List<int> list_2 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
-        List<int> list_3 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 21, 22, 23, 25, 26, 27, 29, 30, 31, 33, 34, 35, 37, 38, 39 };
+        List<int> list_1 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40 };
+        List<int> list_2 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40 };
+        List<int> list_3 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40 };
         List<int> again_buttonlist = new List<int>(){
-            2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39
+            2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19,20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40
         };
         List<int> next_buttonlist = new List<int>(){
-            2,3,5,6,7,8,10,11,12,13,15,16,17,19,21,22,23,25,26,27,29,30,31,33,34,35,37,38,39
+            2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19,20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40
         };
         List<int> next_buttonlist2 = new List<int>(){
-          1,4,9,14,18,20,24,28,32,36
+          1,4,9,14,18,21,25,29,33,37
         };
         List<string> musicfile_list = new List<string>(){
             "1open-lc.mp3","2guide-lc.mp3","3plc-text1.mp3",
@@ -58,7 +58,7 @@ namespace Listening_comprehension
             "21lc-choice32.mp3",
             "22lc-choice33.mp3",
             "23open-dic.mp3","24guide-dic2.mp3","25pdic-text21.mp3",
-            "26pdic-choice21.mp3","27pdic-choice22.mp3",
+            "26pdic-choice21.mp3","27pdic-choice22.wma",
             "28Istart2.mp3","29dic-text11.mp3",
             "30dic-choice11.mp3",
             "31dic-choice12.mp3",
@@ -77,8 +77,8 @@ namespace Listening_comprehension
             "44dic-choice43.mp3",
             "45dic-text15.mp3",
             "46dic-choice51.mp3",
-            "47dic-choice52.mp3",
-            "48dic-choice53.mp3"
+            "47dic-choice52.wma",
+            "48dic-choice53.wma"
         };
         List<List<int>> music_list = new List<List<int>>();
 
@@ -116,7 +116,8 @@ namespace Listening_comprehension
             music_list.Add(new List<int> { 22 });
 
             music_list.Add(new List<int> { 23, 24, 25 });
-            music_list.Add(new List<int> { 26, 27 });
+            music_list.Add(new List<int> { 26 });
+            music_list.Add(new List<int> { 27 });
             music_list.Add(new List<int> { 28, 24, 29 });
             music_list.Add(new List<int> { 30 });
             music_list.Add(new List<int> { 31 });
@@ -151,23 +152,20 @@ namespace Listening_comprehension
             Button1.Visible = false;
             Button2.Visible = false;
             Button3.Visible = false;
-            Button1.Enabled = true;
-            Button2.Enabled = true;
-            Button3.Enabled = true;
-
-            if (Button1.Checked == true){
+            
+            
+            if (Button1.Checked )
+            {
                 Button1.Checked = false;
             }
-            else if(Button2.Checked == true){
+            if (Button2.Checked)
+            {
                 Button2.Checked = false;
             }
-            else if (Button3.Checked ==true){
+            if (Button3.Checked)
+            {
                 Button3.Checked = false;
             }
-
-
-            
-            
             againbutton.Visible = false;
             nextbutton.Visible = false;
 
@@ -175,10 +173,10 @@ namespace Listening_comprehension
             Console.WriteLine("frame:" + frame);
 
             //music play
-            WMPLib.IWMPPlaylist playlist = musicplayer.playlistCollection.newPlaylist("playlist");
+            WMPLib.IWMPPlaylist playlist = musicplayer.playlistCollection.newPlaylist("playlist2");
             //axWindowsMediaPlayer1
             totaltime = TimeSpan.FromMilliseconds(0);
-            if (frame < 39)
+            if (frame < 41)
             {
                 for (int k = 0; k < music_list[frame].Count(); k++)
                 {
@@ -215,6 +213,7 @@ namespace Listening_comprehension
             if (next_buttonlist.IndexOf(frame) != -1)
             {
                 nextbutton.Visible = true;
+                nextbutton.Enabled = false;
                 nextbutton.Text = "下一題";
             }
             if (next_buttonlist2.IndexOf(frame) != -1)
@@ -222,7 +221,7 @@ namespace Listening_comprehension
                 nextbutton.Text = "開始答題";
                 nextbutton.Visible = true;
             }
-            if (frame == 40)
+            if (frame == 41)
             {
                 endbutton.Visible = true;
             }
@@ -249,6 +248,9 @@ namespace Listening_comprehension
             }
             else if (type.Equals(MessageType.nextbutton))
             {
+                Button1.Enabled = true;
+                Button2.Enabled = true;
+                Button3.Enabled = true;
                 datetimeflag = DateTime.Now;
             }
 
@@ -263,6 +265,7 @@ namespace Listening_comprehension
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("1");
             datetimeflag = DateTime.Now;
+            nextbutton.Enabled = true;
         }
         private void Button2_CheckedChanged(object sender, EventArgs e)
         {
@@ -273,6 +276,7 @@ namespace Listening_comprehension
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("2");
             datetimeflag = DateTime.Now;
+            nextbutton.Enabled = true;
         }
         private void Button3_CheckedChanged(object sender, EventArgs e)
         {
@@ -283,6 +287,7 @@ namespace Listening_comprehension
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("3");
             datetimeflag = DateTime.Now;
+            nextbutton.Enabled = true;
         }
 
 
@@ -309,13 +314,23 @@ namespace Listening_comprehension
             string nowpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
             string pathFile = nowpath + "\\聽覺理解";// + namelist[0] + namelist[1];
-
+            Boolean existflag = false;
 
             Excel.Application excelApp = new Excel.Application();
-            string[] Files = Directory.GetFiles(nowpath,"*.xlsx");
-            Console.writeLine(Files);
-            if (Files.IndexOf("聽覺理解") != -1)
+            string[] Files = Directory.GetFiles(nowpath+"\\");
+            Console.WriteLine(Files);
+            foreach (string dir in Files)
             {
+
+                if (dir.Contains("聽覺理解"))
+                {
+                    existflag = true;
+                }
+            }
+
+            if (existflag)
+            {
+                Console.WriteLine("324");
                 Excel.Workbook wBook = excelApp.Workbooks.Open(pathFile);
                 Excel.Worksheet wSheet = wBook.Sheets["聽覺理解"];
                 Excel.Range wRange = wSheet.UsedRange;
@@ -586,6 +601,46 @@ namespace Listening_comprehension
                 }
                 excelApp.Cells[wRange.Rows.Count + 1, 82] = answer_timelist[25];
                 excelApp.Cells[wRange.Rows.Count + 1, 83] = againtimes_list[25];
+                if (answerlist[26] == "")
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 84] = "1";
+                }
+                else
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 84] = "0";
+                }
+                excelApp.Cells[wRange.Rows.Count + 1, 85] = answer_timelist[26];
+                excelApp.Cells[wRange.Rows.Count + 1, 86] = againtimes_list[26];
+                if (answerlist[27] == "")
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 87] = "1";
+                }
+                else
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 87] = "0";
+                }
+                excelApp.Cells[wRange.Rows.Count + 1, 88] = answer_timelist[27];
+                excelApp.Cells[wRange.Rows.Count + 1, 89] = againtimes_list[27];
+                if (answerlist[28] == "")
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 90] = "1";
+                }
+                else
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 90] = "0";
+                }
+                excelApp.Cells[wRange.Rows.Count + 1, 91] = answer_timelist[28];
+                excelApp.Cells[wRange.Rows.Count + 1, 92] = againtimes_list[28];
+                if (answerlist[29] == "")
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1,93] = "1";
+                }
+                else
+                {
+                    excelApp.Cells[wRange.Rows.Count + 1, 93] = "0";
+                }
+                excelApp.Cells[wRange.Rows.Count + 1, 94] = answer_timelist[29];
+                excelApp.Cells[wRange.Rows.Count + 1, 95] = againtimes_list[29];
                 wBook.Save();
                 excelApp.Quit();
 
@@ -702,7 +757,18 @@ namespace Listening_comprehension
                     excelApp.Cells[1, 81] = "第二十六題";
                     excelApp.Cells[1, 82] = "作答時間";
                     excelApp.Cells[1, 83] = "重複次數";
-
+                    excelApp.Cells[1, 84] = "第二十七題";
+                    excelApp.Cells[1, 85] = "作答時間";
+                    excelApp.Cells[1, 86] = "重複次數";
+                    excelApp.Cells[1, 87] = "第二十八題";
+                    excelApp.Cells[1, 88] = "作答時間";
+                    excelApp.Cells[1, 89] = "重複次數";
+                    excelApp.Cells[1, 90] = "第二十九題";
+                    excelApp.Cells[1, 91] = "作答時間";
+                    excelApp.Cells[1, 92] = "重複次數";
+                    excelApp.Cells[1, 93] = "第三十題";
+                    excelApp.Cells[1, 94] = "作答時間";
+                    excelApp.Cells[1, 95] = "重複次數";
 
 
                     // 設定第1列顏色
@@ -981,6 +1047,46 @@ namespace Listening_comprehension
                     excelApp.Cells[2, 82] = answer_timelist[25];
                     excelApp.Cells[2, 83] = againtimes_list[25];
 
+                    if (answerlist[26] == "")
+                    {
+                        excelApp.Cells[2, 84] = "1";
+                    }
+                    else
+                    {
+                        excelApp.Cells[2, 84] = "0";
+                    }
+                    excelApp.Cells[2, 85] = answer_timelist[26];
+                    excelApp.Cells[2, 86] = againtimes_list[26];
+                    if (answerlist[27] == "")
+                    {
+                        excelApp.Cells[2, 87] = "1";
+                    }
+                    else
+                    {
+                        excelApp.Cells[2, 87] = "0";
+                    }
+                    excelApp.Cells[2, 88] = answer_timelist[27];
+                    excelApp.Cells[2, 89] = againtimes_list[27];
+                    if (answerlist[28] == "")
+                    {
+                        excelApp.Cells[2, 90] = "1";
+                    }
+                    else
+                    {
+                        excelApp.Cells[2, 90] = "0";
+                    }
+                    excelApp.Cells[2, 91] = answer_timelist[28];
+                    excelApp.Cells[2, 92] = againtimes_list[28];
+                    if (answerlist[29] == "")
+                    {
+                        excelApp.Cells[2, 93] = "1";
+                    }
+                    else
+                    {
+                        excelApp.Cells[2, 93] = "0";
+                    }
+                    excelApp.Cells[2, 94] = answer_timelist[29];
+                    excelApp.Cells[2, 95] = againtimes_list[29];
 
                     // 設定第3列資料
                     //excelApp.Cells[3, 1] = "BB";
@@ -1034,7 +1140,7 @@ namespace Listening_comprehension
 
 
             //關閉Excel
-            
+
         }
         enum MessageType
         {
