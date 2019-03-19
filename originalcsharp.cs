@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -307,11 +308,12 @@ namespace Listening_comprehension
         {
             string nowpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
-            string pathFile = nowpath + "\\推論理解" + namelist[0] + namelist[1];
+            string pathFile = nowpath + "\\推論理解";// + namelist[0] + namelist[1];
 
 
             Excel.Application excelApp = new Excel.Application();
-            try
+            string[] Files = Directory.GetFiles(nowpath);
+            if (Files.IndexOf("推論理解") != -1)
             {
                 Excel.Workbook wBook = excelApp.Workbooks.Open(pathFile);
                 Excel.Worksheet wSheet = wBook.Sheets["推論理解"];
@@ -596,7 +598,7 @@ namespace Listening_comprehension
                 Application.Exit();
                 //Console.Read();
             }
-            catch
+            else
             {
                 Excel.Workbook wBook = excelApp.Workbooks.Add();
                 Excel.Worksheet wSheet = new Excel.Worksheet();
