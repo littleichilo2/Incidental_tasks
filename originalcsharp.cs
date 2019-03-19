@@ -308,15 +308,15 @@ namespace Listening_comprehension
         {
             string nowpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
-            string pathFile = nowpath + "\\推論理解";// + namelist[0] + namelist[1];
+            string pathFile = nowpath + "\\聽覺理解";// + namelist[0] + namelist[1];
 
 
             Excel.Application excelApp = new Excel.Application();
-            string[] Files = Directory.GetFiles(nowpath);
-            if (Files.IndexOf("推論理解") != -1)
+            string[] Files = Directory.GetFiles(nowpath,"*.xlsx");
+            if (Files.IndexOf("聽覺理解") != -1)
             {
                 Excel.Workbook wBook = excelApp.Workbooks.Open(pathFile);
-                Excel.Worksheet wSheet = wBook.Sheets["推論理解"];
+                Excel.Worksheet wSheet = wBook.Sheets["聽覺理解"];
                 Excel.Range wRange = wSheet.UsedRange;
                 excelApp.Cells[wRange.Rows.Count + 1, 1] = number;//流水號
                 excelApp.Cells[wRange.Rows.Count + 1, 2] = namelist[0] + namelist[1];//姓名
