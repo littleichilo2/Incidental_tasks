@@ -150,6 +150,23 @@ namespace Listening_comprehension
             Button1.Visible = false;
             Button2.Visible = false;
             Button3.Visible = false;
+            Button1.Enabled = true;
+            Button2.Enabled = true;
+            Button3.Enabled = true;
+
+            if (Button1.Checked == true){
+                Button1.Checked = false;
+            }
+            else if(Button2.Checked == true){
+                Button2.Checked = false;
+            }
+            else if (Button3.Checked ==true){
+                Button3.Checked = false;
+            }
+
+
+            
+            
             againbutton.Visible = false;
             nextbutton.Visible = false;
 
