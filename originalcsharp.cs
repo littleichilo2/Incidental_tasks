@@ -321,7 +321,6 @@ namespace Listening_comprehension
             Console.WriteLine(Files);
             foreach (string dir in Files)
             {
-
                 if (dir.Contains("聽覺理解"))
                 {
                     existflag = true;
@@ -330,9 +329,9 @@ namespace Listening_comprehension
 
             if (existflag)
             {
-                Console.WriteLine("324");
                 Excel.Workbook wBook = excelApp.Workbooks.Open(pathFile);
-                Excel.Worksheet wSheet = wBook.Sheets["聽覺理解"];
+                Excel.Worksheet wSheet = new Excel.Worksheet();
+                wSheet = wBook.Sheets["聽覺理解"];
                 Excel.Range wRange = wSheet.UsedRange;
                 excelApp.Cells[wRange.Rows.Count + 1, 1] = number;//流水號
                 excelApp.Cells[wRange.Rows.Count + 1, 2] = namelist[0] + namelist[1];//姓名
