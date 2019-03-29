@@ -221,6 +221,7 @@ namespace Listening_comprehension
             if (again_buttonlist.IndexOf(frame) != -1)
             {
                 againbutton.Visible = true;
+                againbutton.Enabled = true;
             }
             if (next_buttonlist.IndexOf(frame) != -1)
             {
@@ -294,6 +295,7 @@ namespace Listening_comprehension
             Button1.Enabled = false;
             Button2.Enabled = false;
             Button3.Enabled = false;
+            againbutton.Enabled = false;
             datetime_now = DateTime.Now;
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("1");
@@ -305,6 +307,7 @@ namespace Listening_comprehension
             Button1.Enabled = false;
             Button2.Enabled = false;
             Button3.Enabled = false;
+            againbutton.Enabled = false;
             datetime_now = DateTime.Now;
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("2");
@@ -316,6 +319,7 @@ namespace Listening_comprehension
             Button1.Enabled = false;
             Button2.Enabled = false;
             Button3.Enabled = false;
+            againbutton.Enabled = false;
             datetime_now = DateTime.Now;
             answer_timelist.Add((datetime_now - datetimeflag - totaltime).TotalMilliseconds);
             answerlist.Add("3");
