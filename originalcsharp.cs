@@ -343,8 +343,52 @@ namespace Listening_comprehension
             musicplayer.settings.setMode("shuffle", false);
             musicplayer.controls.play();
         }
+        private void endbutton_click(object sender, EventArgs e)
+        {
+            string nowpath = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
-
+            string pathFile = nowpath + "\\聽覺理解";
+            Boolean existflag = false;
+            foreach (string dir in Files)
+            {
+                if (dir.Contains("聽覺理解"))
+                {
+                    existflag = true;
+                }
+            }
+            if (existflag)
+            {
+                var csv = new StringBuilder();
+                var newLine = string.Format(
+                  "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{47},{48},{49},{50},{51},{52},{53},{54},{55},{56},{57},{58},{59},{60},{61},{62},{63},{64},{65},{66},{67},{68},{69},{70},{71},{72},{73},{74},{75},{76},{77},{78},{79},{80},{81},{82},{83},{84},{85},{86},{87},{88},{89},{90},{91},{92},{93},{94}"
+                , number,namelist[0] + namelist[1]
+                ,birthlist[0],testlist[0],gender,answerlist[0],answer_timelist[0],againtimes_list[0],answerlist[1],answer_timelist[1],againtimes_list[1],answerlist[2],answer_timelist[2],againtimes_list[2],answerlist[3],answer_timelist[3],againtimes_list[3],answerlist[4],answer_timelist[4],againtimes_list[4],answerlist[5],answer_timelist[5],againtimes_list[5],answerlist[6],answer_timelist[6],againtimes_list[6],answerlist[7],answer_timelist[7],againtimes_list[7],answerlist[8],answer_timelist[8],
+                againtimes_list[8],answerlist[9],answer_timelist[9],againtimes_list[9],answerlist[10],answer_timelist[10],againtimes_list[10],answerlist[11],answer_timelist[11],againtimes_list[11],answerlist[12],answer_timelist[12],againtimes_list[12],answerlist[13],answer_timelist[13],againtimes_list[13],answerlist[14],answer_timelist[14],againtimes_list[14],answerlist[15],answer_timelist[15],againtimes_list[15],answerlist[16],answer_timelist[16],againtimes_list[16],answerlist[17],
+                answer_timelist[17],againtimes_list[17],answerlist[18],answer_timelist[18],againtimes_list[18],answerlist[19],answer_timelist[19],againtimes_list[19],answerlist[20],answer_timelist[20],againtimes_list[20],answerlist[21],answer_timelist[21],againtimes_list[21],answerlist[22],answer_timelist[22],againtimes_list[22],answerlist[23],answer_timelist[23],againtimes_list[23],answerlist[24],answer_timelist[24],againtimes_list[24],answerlist[25],answer_timelist[25],againtimes_list[25],
+                answerlist[26],answer_timelist[26],againtimes_list[26],answerlist[27],answer_timelist[27],againtimes_list[27],answerlist[28],answer_timelist[28],againtimes_list[28],answerlist[29],answer_timelist[29],againtimes_list[29]
+                );
+                csv.AppendLine(newLine);  
+                File.AppendAllText(pathFile, csv.ToString());
+            }else{
+                var csv = new StringBuilder();
+                var newLine = string.Format(
+                  "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{47},{48},{49},{50},{51},{52},{53},{54},{55},{56},{57},{58},{59},{60},{61},{62},{63},{64},{65},{66},{67},{68},{69},{70},{71},{72},{73},{74},{75},{76},{77},{78},{79},{80},{81},{82},{83},{84},{85},{86},{87},{88},{89},{90},{91},{92},{93},{94}",
+                "流水號","姓名","出生年月","施測日期","性別","第一題","作答時間","重複次數","第二題","作答時間","重複次數","第三題","作答時間","重複次數","第四題","作答時間","重複次數","第五題","作答時間","重複次數","第六題","作答時間","重複次數","第七題","作答時間","重複次數","第八題","作答時間","重複次數","第九題","作答時間","重複次數","第十題","作答時間","重複次數","第十一題","作答時間","重複次數","第十二題","作答時間","重複次數","第十三題","作答時間","重複次數","第十四題","作答時間","重複次數","第十五題","作答時間","重複次數","第十六題","作答時間",
+                "重複次數","第十七題","作答時間","重複次數","第十八題","作答時間","重複次數","第十九題","作答時間","重複次數","第二十題","作答時間","重複次數","第二十一題","作答時間","重複次數","第二十二題","作答時間","重複次數","第二十三題","作答時間","重複次數","第二十四題","作答時間","重複次數","第二十五題","作答時間","重複次數","第二十六題","作答時間","重複次數","第二十七題","作答時間","重複次數","第二十八題","作答時間","重複次數","第二十九題","作答時間","重複次數"
+                );
+                csv.AppendLine(newLine); 
+                
+                var newLine = string.Format(
+                  "{0},{1},{2},{3},{4},{5},{6},{7},{8},{9},{10},{11},{12},{13},{14},{15},{16},{17},{18},{19},{20},{21},{22},{23},{24},{25},{26},{27},{28},{29},{30},{31},{32},{33},{34},{35},{36},{37},{38},{39},{40},{41},{42},{43},{44},{45},{46},{47},{48},{49},{50},{51},{52},{53},{54},{55},{56},{57},{58},{59},{60},{61},{62},{63},{64},{65},{66},{67},{68},{69},{70},{71},{72},{73},{74},{75},{76},{77},{78},{79},{80},{81},{82},{83},{84},{85},{86},{87},{88},{89},{90},{91},{92},{93},{94}", number,namelist[0] + namelist[1]
+                ,birthlist[0],testlist[0],gender,answerlist[0],answer_timelist[0],againtimes_list[0],answerlist[1],answer_timelist[1],againtimes_list[1],answerlist[2],answer_timelist[2],againtimes_list[2],answerlist[3],answer_timelist[3],againtimes_list[3],answerlist[4],answer_timelist[4],againtimes_list[4],answerlist[5],answer_timelist[5],againtimes_list[5],answerlist[6],answer_timelist[6],againtimes_list[6],answerlist[7],answer_timelist[7],againtimes_list[7],answerlist[8],answer_timelist[8],
+                againtimes_list[8],answerlist[9],answer_timelist[9],againtimes_list[9],answerlist[10],answer_timelist[10],againtimes_list[10],answerlist[11],answer_timelist[11],againtimes_list[11],answerlist[12],answer_timelist[12],againtimes_list[12],answerlist[13],answer_timelist[13],againtimes_list[13],answerlist[14],answer_timelist[14],againtimes_list[14],answerlist[15],answer_timelist[15],againtimes_list[15],answerlist[16],answer_timelist[16],againtimes_list[16],answerlist[17],
+                answer_timelist[17],againtimes_list[17],answerlist[18],answer_timelist[18],againtimes_list[18],answerlist[19],answer_timelist[19],againtimes_list[19],answerlist[20],answer_timelist[20],againtimes_list[20],answerlist[21],answer_timelist[21],againtimes_list[21],answerlist[22],answer_timelist[22],againtimes_list[22],answerlist[23],answer_timelist[23],againtimes_list[23],answerlist[24],answer_timelist[24],againtimes_list[24],answerlist[25],answer_timelist[25],againtimes_list[25],
+                answerlist[26],answer_timelist[26],againtimes_list[26],answerlist[27],answer_timelist[27],againtimes_list[27],answerlist[28],answer_timelist[28],againtimes_list[28],answerlist[29],answer_timelist[29],againtimes_list[29]
+                );
+                csv.AppendLine(newLine);  
+                File.WriteAllText(filePath, csv.ToString());
+            }
+        }
 
         private void endbutton_click(object sender, EventArgs e)
         {
