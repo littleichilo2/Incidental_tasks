@@ -24,21 +24,51 @@ namespace Listening_comprehension
         string gender;
         TimeSpan totaltime = TimeSpan.FromMilliseconds(0);
         List<int> titlelist = new List<int>(){
-            1,4,9,14,18,21,25,29,33,37
+            1,17
+        };
+        List<int> practicetitle_1 = new List<int>(){
+          2,18,19,36,37
+        };
+        List<int> practicetitle_2 = new List<int>(){
+          3,4,20,21,38,39
+        };
+        List<int> practicetitle_3 = new List<int>(){
+          22,23
         };
         List<int> title_1 = new List<int>(){
-          2,5,10,15,19,22,26,30,34,38
+          5,6,24,25,40,41
         };
         List<int> title_2 = new List<int>(){
-          3,6,11,16,20,23,27,31,35,39
+          7,8,26,27,42,43
         };
         List<int> title_3 = new List<int>(){
-          7,12,17,24,28,32,36,40
+          9,28,44
         };
         List<int> title_4 = new List<int>(){
-          8,13
+          10,29,45
+        };
+        List<int> title_5 = new List<int>(){
+          11,30,46
+        };
+        List<int> title_6 = new List<int>(){
+          12,31
+        };
+        List<int> title_7 = new List<int>(){
+          13,32
+        };
+        List<int> title_8 = new List<int>(){
+          14,33
+        };
+        List<int> title_9 = new List<int>(){
+          15,34
+        };
+        List<int> title_10 = new List<int>(){
+          16,35
         };
         
+
+
+
         List<int> list_1 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40 };
         List<int> list_2 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40 };
         List<int> list_3 = new List<int>() { 2, 3, 5, 6, 7, 8, 10, 11, 12, 13, 15, 16, 17, 19, 20, 22, 23, 24, 26, 27, 28, 30, 31, 32, 34, 35, 36, 38, 39, 40 };
@@ -52,8 +82,7 @@ namespace Listening_comprehension
           1,4,9,14,18,21,25,29,33,37
         };
         List<string> musicfile_list = new List<string>(){
-            "open-vocdeep1.mp3",
-            "practice1vocdeep.mp3","guide-vocdeep1.mp3",
+            "open-vocdeep1.mp3","practice1vocdeep.mp3","guide-vocdeep1.mp3",
             "practice1vocdeep41.mp3","guide-vocdeep1-1.mp3","pvocdeep-answer41.mp3"
             "practice2vocdeep.mp3","guide-vocdeep1.mp3",
             "practice2vocdeep42.mp3","guide-vocdeep1-1.mp3","pvocdeep-answer42.mp3",
@@ -77,57 +106,29 @@ namespace Listening_comprehension
             "Practice3vocdeep.mp3","guide-vocdeep.mp3",
             "pvocdeep-text3.mp3","pvocdeep-answer2.mp3",
             "Attention2.mp3","guide-vocdeep.mp3",
-            "14vocdeep-text11.mp3",
+            "vocdeep-text11.mp3",
             "guide-vocdeep.mp3",
-            "15Title12.mp3","16vocdeep-text12.mp3",
-            "17Title13.mp3","18vocdeep-text13.mp3",
-            "19Title14.mp3","20vocdeep-text14.mp3",
-            "21Title15.mp3","22vocdeep-text15.mp3",
-            "23Title17.mp3","24vocdeep-text16.mp3",
-            "25Title18.mp3","26vocdeep-text17.mp3",
-            "27Title19.mp3","28vocdeep-text18.mp3",
+            "vocdeep-text12.mp3",
+            "vocdeep-text13.mp3",
+            "vocdeep-text14.mp3",
+            "vocdeep-text15.mp3",
+            "vocdeep-text16.mp3",
+            "vocdeep-text17.mp3",
+            "vocdeep-text18.mp3",
+            "vocdeep-text19.mp3",
+            "vocdeep-text20.mp3",
+            "open-vocdeep3.mp3","guide-vocdeep3,mp3",
+            "practice1vocdeep31.mp3","pvocdeep-answer31.mp3",
+            "practice2vocdeep.mp3","guide-vocdeep3.mp3",
+            "practice2vocdeep32.mp3","pvocdeep-answer32.mp3",
+            "guide-vocdeep3.mp3",
+            "vocdeep-text31.mp3",
+            "guide-vocdeep3.mp3",
+            "vocdeep-text32.mp3",
+            "vocdeep-text33.mp3",
+            "vocdeep-text34.mp3",
+            "vocdeep-text35.mp3",
 
-
-
-            "2guide-lc.mp3","3plc-text1.mp3",
-            "4plc-choice1.mp3","5plc-answer1.mp3",
-            "6plc-choice2.mp3","7plc-answer2.mp3",
-            "8Istart1.mp3","2guide-lc.mp3","9lc-text11.mp3",
-            "10lc-choice11.mp3",
-            "11lc-choice12.mp3",
-            "12lc-choice13.mp3",
-            "13lc-choice14.mp3",
-            "14lc-text12.mp3",
-            "15lc-choice21.mp3",
-            "16lc-choice22.mp3",
-            "17lc-choice23.mp3",
-            "18lc-choice24.mp3",
-            "19lc-text13.mp3",
-            "20lc-choice31.mp3",
-            "21lc-choice32.mp3",
-            "22lc-choice33.mp3",
-            "23open-dic.mp3","24guide-dic2.mp3","25pdic-text21.mp3",
-            "26pdic-choice21.mp3","27pdic-choice22.wma",
-            "28Istart2.mp3","29dic-text11.mp3",
-            "30dic-choice11.mp3",
-            "31dic-choice12.mp3",
-            "32dic-choice13.mp3",
-            "33dic-text12.mp3",
-            "34dic-choice21.mp3",
-            "35dic-choice22.mp3",
-            "36dic-choice23.mp3",
-            "37dic-text13.mp3",
-            "38dic-choice31.mp3",
-            "39dic-choice32.mp3",
-            "40dic-choice33.mp3",
-            "41dic-text14.mp3",
-            "42dic-choice41.mp3",
-            "43dic-choice42.mp3",
-            "44dic-choice43.mp3",
-            "45dic-text15.mp3",
-            "46dic-choice51.mp3",
-            "47dic-choice52.wma",
-            "48dic-choice53.wma"
         };
         List<List<int>> music_list = new List<List<int>>();
 
@@ -147,12 +148,10 @@ namespace Listening_comprehension
             nextbutton.Click += delegate (object sender, EventArgs e) { button_Click(sender, e, MessageType.nextbutton); };
             music_list.Add(new List<int> { 0 });
             music_list.Add(new List<int> { 0, 1, 2 });
-            music_list.Add(new List<int> { 3, 4 });
-            music_list.Add(new List<int> { 5, 6 });
-            music_list.Add(new List<int> { 7, 8, 9 });
-            music_list.Add(new List<int> { 10 });
-            music_list.Add(new List<int> { 11 });
-            music_list.Add(new List<int> { 12 });
+            music_list.Add(new List<int> { 3, 4 ,5});
+            music_list.Add(new List<int> { 6,7 });
+            music_list.Add(new List<int> { 8,9,10 });
+            music_list.Add(new List<int> { 11,12 });
             music_list.Add(new List<int> { 13 });
             music_list.Add(new List<int> { 14 });
             music_list.Add(new List<int> { 15 });
@@ -163,22 +162,16 @@ namespace Listening_comprehension
             music_list.Add(new List<int> { 20 });
             music_list.Add(new List<int> { 21 });
             music_list.Add(new List<int> { 22 });
+            music_list.Add(new List<int> { 23 });
+            music_list.Add(new List<int> { 24 });
 
-            music_list.Add(new List<int> { 23, 24, 25 });
-            music_list.Add(new List<int> { 26 });
-            music_list.Add(new List<int> { 27 });
-            music_list.Add(new List<int> { 28, 24, 29 });
-            music_list.Add(new List<int> { 30 });
-            music_list.Add(new List<int> { 31 });
-            music_list.Add(new List<int> { 32 });
-            music_list.Add(new List<int> { 33 });
-            music_list.Add(new List<int> { 34 });
-            music_list.Add(new List<int> { 35 });
-            music_list.Add(new List<int> { 36 });
-            music_list.Add(new List<int> { 37 });
-            music_list.Add(new List<int> { 38 });
-            music_list.Add(new List<int> { 39 });
-            music_list.Add(new List<int> { 40 });
+            music_list.Add(new List<int> { 25,26 });
+            music_list.Add(new List<int> { 27,28,29 });
+            music_list.Add(new List<int> { 30,31 });
+            music_list.Add(new List<int> { 32, 33, 34 });
+            music_list.Add(new List<int> { 35,36 });
+            music_list.Add(new List<int> { 37,38 });
+            music_list.Add(new List<int> { 39,40 });
             music_list.Add(new List<int> { 41 });
             music_list.Add(new List<int> { 42 });
             music_list.Add(new List<int> { 43 });
@@ -187,6 +180,20 @@ namespace Listening_comprehension
             music_list.Add(new List<int> { 46 });
             music_list.Add(new List<int> { 47 });
             music_list.Add(new List<int> { 48 });
+            music_list.Add(new List<int> { 49 });
+            music_list.Add(new List<int> { 50 });
+            music_list.Add(new List<int> { 51 });
+            music_list.Add(new List<int> { 52,53 });
+            music_list.Add(new List<int> { 54,55 });
+            music_list.Add(new List<int> { 56,57 });
+            music_list.Add(new List<int> { 58,59 });
+            music_list.Add(new List<int> { 60 });
+            music_list.Add(new List<int> { 61 });
+            music_list.Add(new List<int> { 62 });
+            music_list.Add(new List<int> { 63 });
+            music_list.Add(new List<int> { 64 });
+            music_list.Add(new List<int> { 65 });
+            music_list.Add(new List<int> { 66 });
         }
 
         private void button_Click(object sender, EventArgs e, MessageType type)
@@ -291,8 +298,45 @@ namespace Listening_comprehension
                 titlelabel.Text = "第四題";
                 titlelabel.Visible = true;
             }
-            
-            if (frame == 41)
+            if (title_4.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第四題";
+                titlelabel.Visible = true;
+            }
+            if (title_5.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第五題";
+                titlelabel.Visible = true;
+            }
+            if (title_6.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第六題";
+                titlelabel.Visible = true;
+            }
+            if (title_7.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第七題";
+                titlelabel.Visible = true;
+            }
+            if (title_8.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第八題";
+                titlelabel.Visible = true;
+            }
+            if (title_9.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第九題";
+                titlelabel.Visible = true;
+            }
+            if (title_10.IndexOf(frame) != -1)
+            {
+                titlelabel.Text = "第十題";
+                titlelabel.Visible = true;
+            }
+
+
+
+            if (frame == 47)
             {
                 endbutton.Visible = true;
             }
